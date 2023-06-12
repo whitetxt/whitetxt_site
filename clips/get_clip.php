@@ -4,7 +4,7 @@ if (empty($_GET["file"])) {
 }
 
 $target_dir = "/mnt/drive/clips/";
-$target_file = $target_dir . $_GET["file"];
+$target_file = $target_dir . $_GET["file"] . "mp4";
 
 if (!file_exists($target_file)) {
 	die(json_encode(array("status"=>"fail","msg"=>"File not found.")));
@@ -16,4 +16,3 @@ header("Content-Type: video/mp4");
 header("Content-Length: " . filesize($target_file));
 readfile($target_file);
 return;
-?>
