@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_whitetxt</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="col">
+            <a href="about.html" class="item">
+                01. About
+            </a>
+            <a href="projects.html" class="item">
+                02. Projects
+            </a>
+        </div>
+        <div class="txt">
+            <a href="index.html">
+                _whitetxt
+            </a>
+        </div>
+        <div class="col">
+            <a href="contact.html" class="item">
+                03. Contact
+            </a>
+            <a href="links.html" class="item">
+                04. Links
+            </a>
+        </div>
+    </div>
+    <div id="content">
+        <div id="projectsLoading">Loading...</div>
+        <div id="projectContainer"></div>
+    </div>
+</body>
+<script src="styler.js"></script>
+<script src="links.js"></script>
+<script src="cursor.js"></script>
+<script>
+    const URL = `https://gh-pinned-repos.egoist.dev/?username=whitetxt`;
+    const container = document.getElementById("projectContainer")
+    fetch(URL).then((response) => response.json()).then(
+        (data) => {
+            data.forEach((repo) => {
+                const elem = document.createElement("div");
+                elem.classList.add("project");
+                const link = document.createElement("a");
+                link.href = repo.link;
+                link.innerText = repo.repo;
+                elem.appendChild(link);
+                const desc = document.createElement("span");
+                desc.innerText = repo.description || "No Description";
+                desc.classList.add("desc");
+                elem.appendChild(desc);
+                const img = document.createElement("img");
+                img.src = repo.image;
+                img.classList.add("repoimage");
+                img.innerHTML = "Click to go to repo</img>";
+                elem.appendChild(img);
+                container.appendChild(elem);
+            });
+            document.getElementById("projectsLoading").parentElement.removeChild(document.getElementById("projectsLoading"));
+        }
+    )
+</script>
+
+</html>

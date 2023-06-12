@@ -1,0 +1,25 @@
+div#content {
+    padding: 2%;
+    font-size: 1.2rem;
+}
+
+div#content br {
+    content: "";
+    margin: 2em;
+    display: block;
+    font-size: 24%;
+}
+
+div#content a:has(>span) {
+    border-bottom: none;
+}
+
+div#content a {
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+    color: currentColor;
+}
+
+div#content a>span {
+    border-bottom: 2px solid currentColor;
+}

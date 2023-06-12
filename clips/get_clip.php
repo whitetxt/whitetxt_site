@@ -1,15 +1,19 @@
 <?php
 if (empty($_GET["file"])) {
-	die(json_encode(array("status"=>"fail","msg"=>"Missing file.")));
+    die(json_encode(array("status" => "fail", "msg" => "Missing file.")));
 }
 
 $target_dir = "/mnt/drive/clips/";
-$target_file = $target_dir . $_GET["file"] . "mp4";
+if (substr($_GET["file"], -4) !== ".mp4") {
+    $target_file = $target_dir . $_GET["file"] . ".mp4";
+} else {
+    $target_file = $target_dir . $_GET["file"];
+}
 
 if (!file_exists($target_file)) {
-	die(json_encode(array("status"=>"fail","msg"=>"File not found.")));
+    die(json_encode(array("status" => "fail", "msg" => "File not found.")));
 } else if (stripos($target_file, "..") !== false) {
-	die(json_encode(array("status"=>"fail","msg"=>"Relative positions are not allowed.")));
+    die(json_encode(array("status" => "fail", "msg" => "Relative positions are not allowed.")));
 }
 
 header("Content-Type: video/mp4");

@@ -123,7 +123,7 @@
     </div>
     </div>
     <footer id="footer">
-        This site was made and maintained by <a href="https://github.com/_whitetxt"> _whitetxt </a>
+        This site was made and maintained by <a href="https://github.com/whitetxt"> _whitetxt </a>
     </footer>
     </body>
 

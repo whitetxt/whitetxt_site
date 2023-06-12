@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_whitetxt</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="squares">
+        <div id="square" class="main"></div>
+        <svg>
+            <line x1="0" y1="0" x2="100%" y2="100%" />
+            <line x1="33.33%" y1="0" x2="66.67%" y2="100%" />
+            <line x1="66.67%" y1="0" x2="33.33%" y2="100%" />
+            <line x1="100%" y1="0" x2="0" y2="100%" />
+        </svg>
+    </div>
+    <div id="header">
+        <div class="col">
+            <a href="about.html" class="item">
+                01. About
+            </a>
+            <a href="projects.html" class="item">
+                02. Projects
+            </a>
+        </div>
+        <div class="txt">
+            <a href="index.html">
+                _whitetxt
+            </a>
+        </div>
+        <div class="col">
+            <a href="contact.html" class="item">
+                03. Contact
+            </a>
+            <a href="links.html" class="item">
+                04. Links
+            </a>
+        </div>
+    </div>
+</body>
+<script src="styler.js"></script>
+<script src="links.js"></script>
+<script src="cursor.js"></script>
+<script>
+    const square_container = document.querySelector("div.squares");
+    const num_squares = 25;
+    for (var i = 0; i < num_squares; i++) {
+        const sq = document.createElement("div");
+        sq.id = "square";
+        square_container.appendChild(sq);
+    }
+    const squares = document.querySelectorAll("div#square");
+    const animationDuration = 15000;
+    squares.forEach((elem, idx) => {
+        elem.style.animationDuration = `${animationDuration}ms`;
+        elem.style.animationDelay = `${-idx * (animationDuration / num_squares)}ms`;
+    });
+    const mainSquare = document.querySelector("div#square.main");
+    var text = [":3", ":O", "☆ ～('▽^人)", "(* ^ ω ^)", ">:3", ":3c"];
+    mainSquare.innerText = text[Math.floor(Math.random() * text.length)];
+</script>
+
+</html>
