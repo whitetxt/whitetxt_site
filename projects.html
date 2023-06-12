@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>_whitetxt</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="projects.css">
+</head>
+
+<body>
+    <div id="transition"></div>
+    <div id="header">
+        <div class="col">
+            <a href="about.html" class="item">
+                01. About
+            </a>
+            <a href="projects.html" class="item">
+                02. Projects
+            </a>
+        </div>
+        <div class="txt">
+            <a href="index.html">
+                _whitetxt
+            </a>
+        </div>
+        <div class="col">
+            <a href="contact.html" class="item">
+                03. Contact
+            </a>
+            <a href="links.html" class="item">
+                04. Links
+            </a>
+        </div>
+    </div>
+    <div id="content">
+        <div class="title">My projects, in order of most recently updated</div>
+        <span class="loader">Loading...</span>
+        <div id="projectContainer"></div>
+    </div>
+</body>
+<script src="styler.js"></script>
+<script src="links.js"></script>
+<script src="cursor.js"></script>
+<script>
+    const URL = `https://api.github.com/users/whitetxt/repos`;
+    const container = document.getElementById("projectContainer");
+    var duration = 400;
+    const load = document.querySelector("span.loader");
+    const str = load.innerText;
+    load.innerText = "";
+    for (var i = 0; i < str.length; i++) {
+        const char = str.charAt(i);
+        const elem = document.createElement("span");
+        elem.style.animationDelay = `${((i + 1) / (str.length + 2)) * duration}ms`;
+        elem.style.animationDuration = `${duration}ms`;
+        elem.style.animationName = "pulse";
+        elem.style.animationIterationCount = "infinite";
+        elem.style.animationDirection = "alternate";
+        elem.style.display = "inline-block";
+        elem.innerText = char;
+        load.appendChild(elem);
+    }
+    duration = 750;
+    const repos = ["TSEE", "msonline-bot", "epic-shooter", "painter", "CMDPlus"];
+    fetch(URL).then((response) => response.json()).then(
+        (data) => {
+            setTimeout((data) => {
+                console.log(data);
+                data = data.filter((repo) => {
+                    return repos.indexOf(repo.name) != -1;
+                });
+                data.forEach((repo, idx) => {
+                    const elem = document.createElement("div");
+                    elem.classList.add("project");
+                    const link = document.createElement("a");
+                    link.href = repo.html_url;
+                    link.target = "_blank";
+                    link.classList.add("newtab");
+                    link.innerText = repo.name;
+                    elem.appendChild(link);
+                    const desc = document.createElement("span");
+                    desc.innerText = repo.description || "No Description";
+                    desc.classList.add("desc");
+                    elem.appendChild(desc);
+                    elem.style.animation = `fadein ${duration}ms forwards 1 ease-in-out`;
+                    elem.style.animationDelay = `${idx * 100}ms`;
+                    elem.style.opacity = "0";
+                    container.appendChild(elem);
+                });
+                document.querySelector("span.loader").parentElement.removeChild(document.querySelector("span.loader"));
+                setTimeout(() => { document.querySelector("div#projectContainer").style.overflowY = "auto"; }, data.length * 100 + duration);
+            }, 250, data);
+        }
+    )
+</script>
+
+</html>
