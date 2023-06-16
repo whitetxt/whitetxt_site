@@ -1,6 +1,9 @@
 div#content {
+    height: 85%;
+    box-sizing: border-box;
     padding: 2%;
     font-size: 1.2rem;
+    overflow-y: auto;
 }
 
 div#content br {

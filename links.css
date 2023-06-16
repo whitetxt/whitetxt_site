@@ -27,8 +27,9 @@ div#content a>span {
     border-bottom: 2px solid currentColor;
 }
 
-div#content img.logo {
-    width: 5%;
+div#content img.logo,
+div#content svg.logo {
+    width: 64px;
 }
 
 div#content div.logo {
