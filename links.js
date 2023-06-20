@@ -29,7 +29,6 @@ var completed = [];
 var animation = null;
 var curTimeout = null;
 setInterval(() => {
-  links = document.querySelectorAll("a");
   links.forEach((elem) => {
     if (completed.indexOf(elem.href) != -1) return;
     // Ignore elements which have been coloured (the animation removes colour)
@@ -42,6 +41,9 @@ setInterval(() => {
         }
       });
     }
+  });
+  links = document.querySelectorAll("a");
+  links.forEach((elem) => {
     if (elem.target != "_blank") {
       elem.addEventListener("click", (event) => {
         event.preventDefault();
