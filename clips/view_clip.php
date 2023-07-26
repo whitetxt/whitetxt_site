@@ -95,7 +95,7 @@
 			_whitetxt\'s Gaming Clip Zone
 		</span>
 	</div>
-		<div id="container">';
+		<div id="viewclip">';
     if ($file === null) {
         echo '<img id="notfound" src="notfound.png"/>
 				<span id="name">Failed to find file information.</span>';
