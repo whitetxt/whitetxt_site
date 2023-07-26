@@ -81,7 +81,6 @@
     echo '<meta property="twitter:domain" content="whitetxt.duckdns.org">
 	<link rel="stylesheet" href="clips.css">
 	<link rel="stylesheet" href="view_clip.css">
-	<link rel="stylesheet" href="/index.css">
 </head>
 <body>
 	<div id="head">
@@ -96,7 +95,6 @@
 			_whitetxt\'s Gaming Clip Zone
 		</span>
 	</div>
-	<div id="viewclip">
 		<div id="container">';
     if ($file === null) {
         echo '<img id="notfound" src="notfound.png"/>
@@ -120,7 +118,6 @@
 				</button>';
     }
     ?>
-    </div>
     </div>
     <footer id="footer">
         This site was made and maintained by <a href="https://github.com/whitetxt"> _whitetxt </a>
