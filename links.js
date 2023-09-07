@@ -28,7 +28,8 @@ function randomize(elem, num = 1) {
 var completed = [];
 var animation = null;
 var curTimeout = null;
-setInterval(() => {
+// lmao im such an idiot why was that setInterval lmaoooooo
+setTimeout(() => {
   links.forEach((elem) => {
     if (completed.indexOf(elem.href) != -1) return;
     // Ignore elements which have been coloured (the animation removes colour)

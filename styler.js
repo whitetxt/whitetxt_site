@@ -17,6 +17,7 @@ var toReplace = {
   Minecraft: `color:#96C539`,
   "Team Fortress 2": `color:#F49C3F`,
   flyLAT: "color:#3E8DC3",
+  "TailwindCSS#lang": `color:#18B8B8`,
 };
 for (const [key, value] of Object.entries(toReplace)) {
   const keyReplace = key.split("#", 1);
