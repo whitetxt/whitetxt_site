@@ -21,7 +21,7 @@ if (!isset($_POST["name"])) {
 }
 
 $game = $_POST["game"];
-$valid_games = array("Team Fortress 2", "Valorant", "Minecraft", "Other");
+$valid_games = array("Team Fortress 2", "Valorant", "Minecraft", "Jubeat", "Other");
 
 if (!in_array($game, $valid_games)) {
 	die(json_encode(array("status"=>"fail","msg"=>"Invalid game '" . $game . "'")));

@@ -34,6 +34,10 @@ div#clips {
     grid-column-end: 3;
 }
 
+div#clip.hidden {
+display:none;
+}
+
 div#clip {
     padding: 8px;
     border-radius: 16px;
@@ -41,7 +45,7 @@ div#clip {
     background-color: var(--bg-colour);
 }
 
-button {
+button, select#filter {
     padding: 4px;
     border-radius: 4px;
     background-color: #cdb4db;
@@ -71,7 +75,7 @@ div#clip>a>img {
 }
 
 select#filter {
-    background-color: var(--button-colour);
+    background-color: #cdb4db;
     border: none;
     border-radius: 8px;
     padding: 4px;
