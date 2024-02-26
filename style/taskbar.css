@@ -19,11 +19,11 @@ div#taskbar {
     overflow: hidden;
 }
 
-div#taskbar > div.template {
+div#taskbar>div.template {
     display: none !important;
 }
 
-div#taskbar > div.item {
+div#taskbar>div.item {
     height: 21px;
     min-width: 180px;
 
@@ -43,16 +43,16 @@ div#taskbar > div.item {
     gap: 2px;
 }
 
-div#taskbar > div.item:hover {
+div#taskbar>div.item:hover {
     cursor: pointer;
 }
 
-div#taskbar > div.item > img.icon {
+div#taskbar>div.item>img.icon {
     height: 24px;
     width: 24px;
 }
 
-div#taskbar > div#start {
+div#taskbar>div#start {
     height: 31px;
     min-width: 97px;
     width: 97px;
@@ -66,18 +66,19 @@ div#taskbar > div#start {
     padding: 2px;
     box-sizing: border-box;
     font-weight: 800;
+    transition-duration: 100ms;
 }
 
-div#taskbar > div#start.pressed {
+div#taskbar>div#start.pressed {
     box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
-div#taskbar > div#start > img {
+div#taskbar>div#start>img {
     height: 18px;
     margin-left: 10px;
 }
 
-div#taskbar > div#start:hover {
+div#taskbar>div#start:hover {
     box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.2);
     cursor: pointer;
 }

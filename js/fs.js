@@ -3,14 +3,16 @@ class FakeFileSystem {
     if (!localStorage.getItem("wtxt-fs")) {
       localStorage.setItem("wtxt-fs", JSON.stringify({}));
     }
+    this.fs = JSON.parse(localStorage.getItem("wtxt-fs"));
   }
 
   getFS() {
-    return JSON.parse(localStorage.getItem("wtxt-fs"));
+    return this.fs;
   }
 
   getFSDir(path) {
     var fs = this.getFS();
+    var cur_fs = fs;
     var cur_path = path;
     while (path.length !== 0) {
       cur_path = path[0];
@@ -20,11 +22,11 @@ class FakeFileSystem {
       cur_fs = cur_fs[cur_path];
       path.shift();
     }
-    return fs;
+    return cur_fs;
   }
 
-  saveFS(filesystem) {
-    localStorage.setItem("wtxt-fs", JSON.stringify(filesystem));
+  saveFS() {
+    localStorage.setItem("wtxt-fs", JSON.stringify(this.fs));
   }
 
   parsePath(path) {
@@ -56,6 +58,7 @@ class FakeFileSystem {
     filePath = this.parsePath(filePath);
     const filename = filePath.pop();
     const filesystem = this.getFSDir(filePath);
+    console.log(filesystem);
     if (
       filesystem[filename] !== undefined &&
       typeof filesystem[filename] == "object"
@@ -63,13 +66,15 @@ class FakeFileSystem {
       throw new Error("Cannot write to a directory.");
     }
     filesystem[filename] = data;
-    this.saveFS(filesystem);
+    this.saveFS();
   }
 
   deleteFile(filePath) {
-    const filesystem = JSON.parse(localStorage.getItem("filesystem"));
-    delete filesystem[filePath];
-    this.saveFS(filesystem);
+    filePath = this.parsePath(filePath);
+    const filename = filePath.pop();
+    const filesystem = this.getFSDir(filePath);
+    delete filesystem[filename];
+    this.saveFS();
   }
 
   createDir(path) {
@@ -85,8 +90,13 @@ class FakeFileSystem {
       cur_fs = cur_fs[cur_path];
       path.shift();
     }
-    this.saveFS(fs);
+    this.saveFS();
   }
 }
 
 const fs = new FakeFileSystem();
+fs.createDir("/Users/whtxt/Documents");
+fs.createDir("/Users/whtxt/Downloads");
+fs.createDir("/Users/whtxt/Music");
+fs.createDir("/Users/whtxt/Photos");
+fs.createDir("/Users/whtxt/Videos");

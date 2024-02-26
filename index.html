@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="style/index.css">
     <script src="js/fs.js"></script>
     <script src="js/desktop.js" defer></script>
-    <script src="js/notepad.js" defer></script>
     <script src="js/taskbar.js" defer></script>
+    <script src="js/fileexplorer.js" defer></script>
+    <script src="js/notepad.js" defer></script>
     <script src="js/defrag.js" defer></script>
 </head>
 
@@ -30,7 +31,7 @@
     <div id="start-menu" class="hidden">
         <div id="head">
             <img src="assets/accicons/chess.bmp" alt="" id="pfp">
-            <span id="username">Evie</span>
+            <span id="username">_whitetxt</span>
         </div>
         <div id="main">
             <div id="hr"></div>
@@ -239,6 +240,70 @@
                         <div class="start">Start</div>
                         <div class="quit">Quit</div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="template window filepicker">
+            <div class="header">
+                <img src="assets/appicons/mycomputer.png" alt="File Manager Icon" class="icon">
+                <span class="title">Pick a File</span>
+                <span class="fill"></span>
+                <div class="minimizebutton">
+                    <svg>
+                        <line x1="15%" y1="80%" x2="60%" y2="80%" />
+                    </svg>
+                </div>
+                <div class="maximizebutton">
+                    <svg>
+                        <line x1="80%" y1="80%" x2="80%" y2="20%" />
+                        <line x1="20%" y1="20%" x2="20%" y2="80%" />
+                        <line x1="20%" y1="80%" x2="80%" y2="80%" />
+                        <rect x="20%" y="20%" width="60%" height="15%" />
+                    </svg>
+                </div>
+                <div class="quitbutton">
+                    <svg>
+                        <line x1="20%" y1="20%" x2="80%" y2="80%" />
+                        <line x1="20%" y1="80%" x2="80%" y2="20%" />
+                    </svg>
+                </div>
+            </div>
+            <div class="rest">
+                <div class="addrbar">
+                    <span>Address</span>
+                    <span class="addr">
+                        C:/Users/whtxt
+                    </span>
+                </div>
+                <div class="sidebar">
+                    <div class="places">
+                        <div class="title">
+                            Places
+                        </div>
+                        <div class="item computer">
+                            <img src="assets/appicons/mycomputer.png" alt="Computer" class="icon">
+                            My Computer
+                        </div>
+                        <div class="item docs">
+                            <img src="assets/appicons/mydocs.png" alt="Documents" class="icon">
+                            My Documents
+                        </div>
+                        <div class="item photos">
+                            <img src="assets/appicons/myphotos.png" alt="Photos" class="icon">
+                            My Photos
+                        </div>
+                        <div class="item music">
+                            <img src="assets/appicons/mymusic.png" alt="Music" class="icon">
+                            My Music
+                        </div>
+                        <div class="item videos">
+                            <img src="assets/appicons/myvideos.png" alt="Videos" class="icon">
+                            My Videos
+                        </div>
+                    </div>
+                </div>
+                <div class="files">
+                    Files
                 </div>
             </div>
         </div>
