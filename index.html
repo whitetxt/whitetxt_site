@@ -8,6 +8,11 @@
     <meta name="description" content="whitetxt definitely not windows xp site">
     <title>definitely not windows xp</title>
     <link rel="stylesheet" href="style/index.css">
+    <script src="js/fs.js"></script>
+    <script src="js/desktop.js" defer></script>
+    <script src="js/notepad.js" defer></script>
+    <script src="js/taskbar.js" defer></script>
+    <script src="js/defrag.js" defer></script>
 </head>
 
 <body>
@@ -43,8 +48,12 @@
                     </div>
                     <div class="sep"></div>
                     <div class="frequent">
-                        <img src="assets/appicons/cmd.png" alt="" class="icon">
-                        <span class="name">Command Prompt</span>
+                        <img src="assets/appicons/photoviewer.png" alt="" class="icon">
+                        <span class="name">Photo Viewer</span>
+                    </div>
+                    <div class="frequent">
+                        <img src="assets/appicons/wmp.png" alt="" class="icon">
+                        <span class="name">Media Player</span>
                     </div>
                     <div class="frequent">
                         <img src="assets/appicons/defrag.png" alt="" class="icon">
@@ -61,10 +70,6 @@
                     <div class="frequent">
                         <img src="assets/appicons/recycle.png" alt="" class="icon">
                         <span class="name">Recycle Bin</span>
-                    </div>
-                    <div class="frequent">
-                        <img src="assets/appicons/wmp.png" alt="" class="icon">
-                        <span class="name">Media Player</span>
                     </div>
                     <div class="sep"></div>
                     <div class="all">
@@ -87,7 +92,7 @@
             <div class="rest">
                 <img src="assets/icons/error.png" alt="" class="icon">
                 <div class="actions">
-                    <span class="text">You are extremely gay. We cannot handle it.</span>
+                    <span class="text"></span>
                     <div class="buttons"></div>
                 </div>
             </div>
@@ -199,7 +204,7 @@
         </div>
         <div class="template window taskmgr">
             <div class="header">
-                <img src="assets/appicons/defrag.png" alt="Defragmenter Icon" class="icon">
+                <img src="assets/appicons/taskmanager.png" alt="Task Manager Icon" class="icon">
                 <span class="title">Task Manager</span>
                 <span class="fill"></span>
                 <div class="minimizebutton">
@@ -267,6 +272,11 @@
                 openDefrag();
                 toggle_start();
             });
+        } else if (title == "Task Manager") {
+            item.addEventListener("click", () => {
+                openDefrag();
+                toggle_start();
+            });
         } else {
             item.addEventListener("click", () => {
                 error("Unknown Application", `Application ${title} cannot be found.`, ["Ok"], "error.png");
@@ -274,9 +284,5 @@
         }
     }
 </script>
-<script src="js/desktop.js"></script>
-<script src="js/notepad.js"></script>
-<script src="js/taskbar.js"></script>
-<script src="js/defrag.js"></script>
 
 </html>
