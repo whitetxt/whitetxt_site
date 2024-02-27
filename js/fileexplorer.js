@@ -59,7 +59,7 @@ function openFilePicker(title = "Pick a File") {
   places.querySelector(".photos").addEventListener(
     "click",
     function () {
-      change_picker_dir(this, "/Users/whtxt/Pictures");
+      change_picker_dir(this, "/Users/whtxt/Photos");
     }.bind(new_picker)
   );
   places.querySelector(".music").addEventListener(
@@ -88,8 +88,87 @@ function openFilePicker(title = "Pick a File") {
   create_taskbar_item(title, "assets/appicons/mycomputer.png", last_window_id);
   focus_window(last_window_id);
   desktop.appendChild(new_picker);
+  change_picker_dir(new_picker, "/Users/whtxt");
 }
 
-function change_picker_dir(element, dir) {}
+function change_picker_dir(element, orig_dir) {
+  const dir = fs.parsePath(orig_dir);
+  const items = fs.getFSDir(dir);
+  const files = element.querySelector("div.files");
+  var children = [...files.children];
+  for (var i = 0; i < children.length; i++) {
+    if (children[i].classList.contains("file")) {
+      children[i].parentElement.removeChild(children[i]);
+    }
+  }
+
+  var file = document.createElement("div");
+  file.classList.add("file");
+  var name = document.createElement("span");
+  name.classList.add("name");
+  name.innerText = "Back";
+  file.appendChild(name);
+  var type = document.createElement("span");
+  type.classList.add("type");
+  type.innerText = "Folder";
+  file.appendChild(type);
+  var size = document.createElement("span");
+  size.classList.add("size");
+  size.innerText = "0 B";
+  file.appendChild(size);
+  var old_dir = orig_dir.split("/");
+  old_dir.pop();
+  old_dir = old_dir.join("/");
+  if (old_dir === "") {
+    old_dir = "/";
+  }
+  file.addEventListener(
+    "click",
+    function () {
+      change_picker_dir(this, old_dir);
+    }.bind(element)
+  );
+  files.appendChild(file);
+  Object.entries(items).forEach((arr) => {
+    var k = arr[0];
+    var v = arr[1];
+    const file = document.createElement("div");
+    file.classList.add("file");
+    const name = document.createElement("span");
+    name.classList.add("name");
+    name.innerText = k;
+    file.appendChild(name);
+    const type = document.createElement("span");
+    type.classList.add("type");
+    if (typeof v === "object") {
+      type.innerText = "Folder";
+    } else {
+      type.innerText = "File";
+    }
+    file.appendChild(type);
+    const size = document.createElement("span");
+    size.classList.add("size");
+    if (typeof v === "object") {
+      size.innerText = "0 B";
+    } else {
+      size.innerText = "3 KB";
+    }
+    file.appendChild(size);
+    if (typeof v === "object") {
+      file.addEventListener(
+        "click",
+        function () {
+          change_picker_dir(
+            this,
+            orig_dir + (orig_dir[orig_dir.length - 1] !== "/" ? "/" : "") + k
+          );
+        }.bind(element)
+      );
+    } else {
+    }
+    files.appendChild(file);
+  });
+  element.querySelector("span.addr").innerText = "C:" + orig_dir;
+}
 
 openFilePicker();

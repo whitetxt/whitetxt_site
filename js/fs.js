@@ -16,6 +16,9 @@ class FakeFileSystem {
     var cur_path = path;
     while (path.length !== 0) {
       cur_path = path[0];
+      if (cur_path === "") {
+        break;
+      }
       if (Object.keys(cur_fs).indexOf(cur_path) === -1) {
         throw new Error("Path does not exist.");
       }

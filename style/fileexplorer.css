@@ -24,9 +24,11 @@ div.filepicker div.rest div.addrbar {
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 0px 1px 1px black;
+    z-index: 2;
 }
 
-div.filepicker div.rest div.addrbar :not(.addr) {
+div.filepicker div.rest div.addrbar .text {
     color: rgba(0, 0, 0, 0.6);
     padding-left: 8px;
     padding-right: 8px;
@@ -60,7 +62,7 @@ div.filepicker div.rest div.sidebar>* .title {
     border-radius: 4px 4px 0px 0px;
 }
 
-div.filepicker div.rest div.sidebar .item {
+div.filepicker div.sidebar .item {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -71,14 +73,56 @@ div.filepicker div.rest div.sidebar .item {
     user-select: none;
 }
 
-div.filepicker div.rest div.sidebar .item img {
+div.filepicker div.sidebar .item img {
     width: 24px;
     height: 24px;
     margin-right: 4px;
 }
 
-div.filepicker div.rest div.files {
-    background-color: green;
+div.filepicker div.other {
+    background-color: rgb(230, 224, 217);
     grid-column: 4 / -1;
     grid-row: 2 / -1;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.filepicker div.other .top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+div.filepicker div.other div.files {
+    flex-grow: 1;
+}
+
+div.filepicker div.other div.file {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 2px;
+}
+
+div.filepicker div.other div.file:hover {
+    cursor: pointer;
+    backdrop-filter: brightness(1.1);
+}
+
+div.filepicker div.select {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    align-items: center;
+}
+
+div.filepicker div.select input {
+    grid-row: 1 / -1;
+    height: 50%;
+}
+
+img.back {
+    width: 24px;
+    height: 24px;
 }

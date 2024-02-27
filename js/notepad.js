@@ -15,39 +15,62 @@ function openNotepad(file = null) {
   head.addEventListener("mouseup", () => {
     selected_element = null;
   });
-  
-  head.querySelector(".minimizebutton").addEventListener("click", function() {
-    this.dataset.mini = "yes";
-    this.style.opacity = "0";
-  }.bind(new_notepad));
-  head.querySelector(".maximizebutton").addEventListener("click", function() {
-    this.dataset.max = "yes";
-    this.style.width = "100%";
-    this.style.height = "calc(100% - 31px)";
-    this.style.top = "0";
-    this.style.left = "0";
-  }.bind(new_notepad));
-  head.querySelector(".quitbutton").addEventListener("click", function() {
-    this.parentElement.removeChild(this);
-    remove_taskbar_item(this.dataset.window_id);
-  }.bind(new_notepad));
 
-  new_notepad.querySelector("div.menuitem.save").addEventListener("click", function() {
-    notepadSave(this);
-  }.bind(new_notepad));
-  new_notepad.querySelector("div.menuitem.load").addEventListener("click", function() {
-    notepadLoad(this);
-  }.bind(new_notepad));
-  new_notepad.querySelector("div.menuitem.download").addEventListener("click", function() {
-    notepadDownload(this);
-  }.bind(new_notepad));
-  new_notepad.querySelector("div.menuitem.help").addEventListener("click", function() {
-    openNotepadHelp();
-  });
+  head.querySelector(".minimizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.mini = "yes";
+      this.style.opacity = "0";
+    }.bind(new_notepad)
+  );
+  head.querySelector(".maximizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.max = "yes";
+      this.style.width = "100%";
+      this.style.height = "calc(100% - 31px)";
+      this.style.top = "0";
+      this.style.left = "0";
+    }.bind(new_notepad)
+  );
+  head.querySelector(".quitbutton").addEventListener(
+    "click",
+    function () {
+      this.parentElement.removeChild(this);
+      remove_taskbar_item(this.dataset.window_id);
+    }.bind(new_notepad)
+  );
 
-  new_notepad.addEventListener("click", function() {
-    focus_window(this.dataset.window_id);
-  }.bind(new_notepad));
+  new_notepad.querySelector("div.menuitem.save").addEventListener(
+    "click",
+    function () {
+      notepadSave(this);
+    }.bind(new_notepad)
+  );
+  new_notepad.querySelector("div.menuitem.load").addEventListener(
+    "click",
+    function () {
+      notepadLoad(this);
+    }.bind(new_notepad)
+  );
+  new_notepad.querySelector("div.menuitem.download").addEventListener(
+    "click",
+    function () {
+      notepadDownload(this);
+    }.bind(new_notepad)
+  );
+  new_notepad
+    .querySelector("div.menuitem.help")
+    .addEventListener("click", function () {
+      openNotepadHelp();
+    });
+
+  new_notepad.addEventListener(
+    "click",
+    function () {
+      focus_window(this.dataset.window_id);
+    }.bind(new_notepad)
+  );
 
   windows_open[++last_window_id] = new_notepad;
   new_notepad.dataset.window_id = last_window_id;
@@ -72,7 +95,7 @@ function notepadLoad(base_div) {
 
 function notepadDownload(base_div) {
   const text = base_div.querySelector(".editor .text").value;
-  const blob = new Blob([text], {type: "text/plain"});
+  const blob = new Blob([text], { type: "text/plain" });
   const URL = window.URL.createObjectURL(blob);
   const filename = "notepad.txt";
 
@@ -81,7 +104,7 @@ function notepadDownload(base_div) {
   downloadLink.href = URL;
   downloadLink.onclick = () => {
     downloadLink.parentElement.removeChild(downloadLink);
-  }
+  };
   downloadLink.style.display = "none";
   document.body.appendChild(downloadLink);
   downloadLink.click();
@@ -103,33 +126,52 @@ function openNotepadHelp(file = null) {
   head.addEventListener("mouseup", () => {
     selected_element = null;
   });
-  
-  head.querySelector(".minimizebutton").addEventListener("click", function() {
-    this.dataset.mini = "yes";
-    this.style.opacity = "0";
-  }.bind(new_notepad));
-  head.querySelector(".maximizebutton").addEventListener("click", function() {
-    this.dataset.max = "yes";
-    this.style.width = "100%";
-    this.style.height = "calc(100% - 31px)";
-    this.style.top = "0";
-    this.style.left = "0";
-  }.bind(new_notepad));
-  head.querySelector(".quitbutton").addEventListener("click", function() {
-    this.parentElement.removeChild(this);
-    remove_taskbar_item(this.dataset.window_id);
-  }.bind(new_notepad));
 
-  new_notepad.addEventListener("click", function() {
-    focus_window(this.dataset.window_id);
-  }.bind(new_notepad));
+  head.querySelector(".minimizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.mini = "yes";
+      this.style.opacity = "0";
+    }.bind(new_notepad)
+  );
+  head.querySelector(".maximizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.max = "yes";
+      this.style.width = "100%";
+      this.style.height = "calc(100% - 31px)";
+      this.style.top = "0";
+      this.style.left = "0";
+    }.bind(new_notepad)
+  );
+  head.querySelector(".quitbutton").addEventListener(
+    "click",
+    function () {
+      this.parentElement.removeChild(this);
+      remove_taskbar_item(this.dataset.window_id);
+    }.bind(new_notepad)
+  );
+
+  new_notepad.addEventListener(
+    "click",
+    function () {
+      focus_window(this.dataset.window_id);
+    }.bind(new_notepad)
+  );
 
   windows_open[++last_window_id] = new_notepad;
   new_notepad.dataset.window_id = last_window_id;
   new_notepad.id = last_window_id;
-  create_taskbar_item("Notepad - Help", "assets/appicons/notepad.png", last_window_id);
+  create_taskbar_item(
+    "Notepad - Help",
+    "assets/appicons/notepad.png",
+    last_window_id
+  );
   desktop.appendChild(new_notepad);
-  setTimeout(function () {
-    focus_window(this);
-  }.bind(last_window_id), 0);
+  setTimeout(
+    function () {
+      focus_window(this);
+    }.bind(last_window_id),
+    0
+  );
 }

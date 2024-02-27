@@ -113,9 +113,6 @@ function start_defrag(window_id) {
       snake: [
         [0, 0],
         [0, 0],
-        [1, 0],
-        [2, 0],
-        [3, 0],
       ],
       direction: 0,
       quit: false,
@@ -127,12 +124,6 @@ function start_defrag(window_id) {
       squares[i].classList.remove("completed");
       if (i == 420) {
         squares[i].classList.add("fruit");
-      } else {
-        squares[i].classList.add("completed");
-        defrag_windows[window_id]["completed"].push([
-          i % 40,
-          Math.floor(i / 40),
-        ]);
       }
     }
     setTimeout(perform_defrag, 50, window_id);
