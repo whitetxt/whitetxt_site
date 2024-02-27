@@ -103,3 +103,4 @@ fs.createDir("/Users/whtxt/Downloads");
 fs.createDir("/Users/whtxt/Music");
 fs.createDir("/Users/whtxt/Photos");
 fs.createDir("/Users/whtxt/Videos");
+fs.writeFile("/Users/whtxt/Documents/test.txt", "Hello, World!");

@@ -108,7 +108,7 @@ div.filepicker div.other div.file:hover {
     backdrop-filter: brightness(1.1);
 }
 
-div.filepicker div.select {
+div.filepicker div.other>div.select {
     display: grid;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -119,7 +119,20 @@ div.filepicker div.select {
 
 div.filepicker div.select input {
     grid-row: 1 / -1;
-    height: 50%;
+    height: 70%;
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+div.filepicker div.select div.button {
+    width: min-content;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.5), inset 2px 2px 0px rgba(200, 200, 200, 0.5);
+    cursor: pointer;
+    user-select: none;
+    margin: auto;
 }
 
 img.back {

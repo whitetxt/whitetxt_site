@@ -1,6 +1,8 @@
 const template_filepicker = document.querySelector("div.template.filepicker");
 
-function openFilePicker(title = "Pick a File") {
+var on_selects = {};
+
+function openFilePicker(on_select, title = "Pick a File") {
   new_picker = template_filepicker.cloneNode(true);
   new_picker.classList.remove("template");
   const head = new_picker.querySelector("div.header");
@@ -82,6 +84,18 @@ function openFilePicker(title = "Pick a File") {
     }.bind(new_picker)
   );
 
+  new_picker.querySelector("div.button.select").addEventListener(
+    "click",
+    function () {
+      const filepath = this.querySelector("input.file").dataset.path;
+      if (filepath === undefined) {
+        return;
+      }
+      const file_contents = fs.readFile(filepath);
+      on_selects[this.dataset.window_id](filepath, file_contents);
+    }.bind(new_picker)
+  );
+
   windows_open[++last_window_id] = new_picker;
   new_picker.dataset.window_id = last_window_id;
   new_picker.id = last_window_id;
@@ -89,6 +103,7 @@ function openFilePicker(title = "Pick a File") {
   focus_window(last_window_id);
   desktop.appendChild(new_picker);
   change_picker_dir(new_picker, "/Users/whtxt");
+  on_selects[last_window_id] = on_select;
 }
 
 function change_picker_dir(element, orig_dir) {
@@ -102,33 +117,35 @@ function change_picker_dir(element, orig_dir) {
     }
   }
 
-  var file = document.createElement("div");
-  file.classList.add("file");
-  var name = document.createElement("span");
-  name.classList.add("name");
-  name.innerText = "Back";
-  file.appendChild(name);
-  var type = document.createElement("span");
-  type.classList.add("type");
-  type.innerText = "Folder";
-  file.appendChild(type);
-  var size = document.createElement("span");
-  size.classList.add("size");
-  size.innerText = "0 B";
-  file.appendChild(size);
-  var old_dir = orig_dir.split("/");
-  old_dir.pop();
-  old_dir = old_dir.join("/");
-  if (old_dir === "") {
-    old_dir = "/";
+  if (orig_dir !== "/") {
+    var file = document.createElement("div");
+    file.classList.add("file");
+    var name = document.createElement("span");
+    name.classList.add("name");
+    name.innerText = "Back";
+    file.appendChild(name);
+    var type = document.createElement("span");
+    type.classList.add("type");
+    type.innerText = "Folder";
+    file.appendChild(type);
+    var size = document.createElement("span");
+    size.classList.add("size");
+    size.innerText = "0 B";
+    file.appendChild(size);
+    var old_dir = orig_dir.split("/");
+    old_dir.pop();
+    old_dir = old_dir.join("/");
+    if (old_dir === "") {
+      old_dir = "/";
+    }
+    file.addEventListener(
+      "click",
+      function () {
+        change_picker_dir(this, old_dir);
+      }.bind(element)
+    );
+    files.appendChild(file);
   }
-  file.addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, old_dir);
-    }.bind(element)
-  );
-  files.appendChild(file);
   Object.entries(items).forEach((arr) => {
     var k = arr[0];
     var v = arr[1];
@@ -165,10 +182,21 @@ function change_picker_dir(element, orig_dir) {
         }.bind(element)
       );
     } else {
+      const filepath =
+        orig_dir + (orig_dir[orig_dir.length - 1] !== "/" ? "/" : "") + k;
+      file.addEventListener(
+        "click",
+        function () {
+          this.querySelector("input.file").value = k;
+          this.querySelector("input.file").dataset.path = filepath;
+        }.bind(element)
+      );
     }
     files.appendChild(file);
   });
   element.querySelector("span.addr").innerText = "C:" + orig_dir;
 }
 
-openFilePicker();
+openFilePicker((path, contents) => {
+  alert(`${path}\n${contents}`);
+});
