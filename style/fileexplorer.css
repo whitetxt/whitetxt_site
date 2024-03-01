@@ -1,5 +1,4 @@
-div.filepicker,
-div.fileexplorer {
+div.fileselect {
     position: absolute;
     background-color: rgb(230, 230, 230);
     transition-property: opacity;
@@ -10,7 +9,7 @@ div.fileexplorer {
     height: 540px;
 }
 
-div.filepicker div.rest {
+div.fileselect div.rest {
     height: calc(100% - 28px);
     width: 100%;
     display: grid;
@@ -18,7 +17,7 @@ div.filepicker div.rest {
     grid-template-columns: repeat(10, 1fr);
 }
 
-div.filepicker div.rest div.addrbar {
+div.fileselect div.rest div.addrbar {
     background-color: rgb(245, 245, 245);
     grid-column: 1 / -1;
     display: flex;
@@ -28,18 +27,18 @@ div.filepicker div.rest div.addrbar {
     z-index: 2;
 }
 
-div.filepicker div.rest div.addrbar .text {
+div.fileselect div.rest div.addrbar .text {
     color: rgba(0, 0, 0, 0.6);
     padding-left: 8px;
     padding-right: 8px;
     width: 70px;
 }
 
-div.filepicker div.rest div.addrbar .addr {
+div.fileselect div.rest div.addrbar .addr {
     width: calc(90% - 112px);
 }
 
-div.filepicker div.rest div.sidebar {
+div.fileselect div.rest div.sidebar {
     background: linear-gradient(to right, var(--taskbar-bg), rgb(71, 124, 229));
     grid-row: 2 / -1;
     grid-column: 1 / 4;
@@ -48,21 +47,21 @@ div.filepicker div.rest div.sidebar {
     align-items: center;
 }
 
-div.filepicker div.rest div.sidebar>* {
+div.fileselect div.rest div.sidebar>* {
     margin: 8px;
     width: 90%;
 }
 
-div.filepicker div.rest div.sidebar>*>* {
+div.fileselect div.rest div.sidebar>*>* {
     padding: 8px;
 }
 
-div.filepicker div.rest div.sidebar>* .title {
+div.fileselect div.rest div.sidebar>* .title {
     background: linear-gradient(to right, rgb(245, 245, 245), rgb(198, 216, 250));
     border-radius: 4px 4px 0px 0px;
 }
 
-div.filepicker div.sidebar .item {
+div.fileselect div.sidebar .item {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -73,13 +72,13 @@ div.filepicker div.sidebar .item {
     user-select: none;
 }
 
-div.filepicker div.sidebar .item img {
+div.fileselect div.sidebar .item img {
     width: 24px;
     height: 24px;
     margin-right: 4px;
 }
 
-div.filepicker div.other {
+div.fileselect div.other {
     background-color: rgb(230, 224, 217);
     grid-column: 4 / -1;
     grid-row: 2 / -1;
@@ -88,22 +87,22 @@ div.filepicker div.other {
     flex-direction: column;
 }
 
-div.filepicker div.other .top {
+div.fileselect div.other .top {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
 }
 
-div.filepicker div.other div.files {
+div.fileselect div.other div.files {
     flex-grow: 1;
 }
 
-div.filepicker div.other div.file {
+div.fileselect div.other div.file {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     padding: 2px;
 }
 
-div.filepicker div.other div.file:hover {
+div.fileselect div.other div.file:hover {
     cursor: pointer;
     backdrop-filter: brightness(1.1);
 }

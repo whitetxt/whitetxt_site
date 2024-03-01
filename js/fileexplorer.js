@@ -46,36 +46,7 @@ function openFilePicker(on_select, title = "Pick a File") {
   head.querySelector(".title").innerText = title;
 
   const places = new_picker.querySelector("div.places");
-  places.querySelector(".computer").addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, "/Users/whtxt");
-    }.bind(new_picker)
-  );
-  places.querySelector(".docs").addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, "/Users/whtxt/Documents");
-    }.bind(new_picker)
-  );
-  places.querySelector(".photos").addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, "/Users/whtxt/Photos");
-    }.bind(new_picker)
-  );
-  places.querySelector(".music").addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, "/Users/whtxt/Music");
-    }.bind(new_picker)
-  );
-  places.querySelector(".videos").addEventListener(
-    "click",
-    function () {
-      change_picker_dir(this, "/Users/whtxt/Videos");
-    }.bind(new_picker)
-  );
+  setupFileBrowserPlaces(new_picker, places);
 
   new_picker.addEventListener(
     "click",
@@ -102,11 +73,44 @@ function openFilePicker(on_select, title = "Pick a File") {
   create_taskbar_item(title, "assets/appicons/mycomputer.png", last_window_id);
   focus_window(last_window_id);
   desktop.appendChild(new_picker);
-  change_picker_dir(new_picker, "/Users/whtxt");
+  change_browser_dir(new_picker, "/Users/whtxt");
   on_selects[last_window_id] = on_select;
 }
 
-function change_picker_dir(element, orig_dir) {
+function setupFileBrowserPlaces(fb, places) {
+  places.querySelector(".computer").addEventListener(
+    "click",
+    function () {
+      change_browser_dir(this, "/Users/whtxt");
+    }.bind(fb)
+  );
+  places.querySelector(".docs").addEventListener(
+    "click",
+    function () {
+      change_browser_dir(this, "/Users/whtxt/Documents");
+    }.bind(fb)
+  );
+  places.querySelector(".photos").addEventListener(
+    "click",
+    function () {
+      change_browser_dir(this, "/Users/whtxt/Photos");
+    }.bind(fb)
+  );
+  places.querySelector(".music").addEventListener(
+    "click",
+    function () {
+      change_browser_dir(this, "/Users/whtxt/Music");
+    }.bind(fb)
+  );
+  places.querySelector(".videos").addEventListener(
+    "click",
+    function () {
+      change_browser_dir(this, "/Users/whtxt/Videos");
+    }.bind(fb)
+  );
+}
+
+function change_browser_dir(element, orig_dir) {
   const dir = fs.parsePath(orig_dir);
   const items = fs.getFSDir(dir);
   const files = element.querySelector("div.files");
@@ -141,7 +145,7 @@ function change_picker_dir(element, orig_dir) {
     file.addEventListener(
       "click",
       function () {
-        change_picker_dir(this, old_dir);
+        change_browser_dir(this, old_dir);
       }.bind(element)
     );
     files.appendChild(file);
@@ -175,7 +179,7 @@ function change_picker_dir(element, orig_dir) {
       file.addEventListener(
         "click",
         function () {
-          change_picker_dir(
+          change_browser_dir(
             this,
             orig_dir + (orig_dir[orig_dir.length - 1] !== "/" ? "/" : "") + k
           );
@@ -197,6 +201,67 @@ function change_picker_dir(element, orig_dir) {
   element.querySelector("span.addr").innerText = "C:" + orig_dir;
 }
 
-openFilePicker((path, contents) => {
-  alert(`${path}\n${contents}`);
-});
+const template_filebrowser = document.querySelector("div.template.filebrowser");
+function openFileBrowser(start_dir = "/Users/whtxt") {
+  new_fb = template_filebrowser.cloneNode(true);
+  new_fb.classList.remove("template");
+  const head = new_fb.querySelector("div.header");
+  head.addEventListener(
+    "mousedown",
+    function () {
+      selected_element = this;
+      selected_defaultW = "680px";
+      selected_defaultH = "540px";
+    }.bind(new_fb)
+  );
+  head.addEventListener("mouseup", () => {
+    selected_element = null;
+  });
+
+  head.querySelector(".minimizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.mini = "yes";
+      this.style.opacity = "0";
+    }.bind(new_fb)
+  );
+  head.querySelector(".maximizebutton").addEventListener(
+    "click",
+    function () {
+      this.dataset.max = "yes";
+      this.style.width = "100%";
+      this.style.height = "calc(100% - 31px)";
+      this.style.top = "0";
+      this.style.left = "0";
+    }.bind(new_fb)
+  );
+  head.querySelector(".quitbutton").addEventListener(
+    "click",
+    function () {
+      this.parentElement.removeChild(this);
+      remove_taskbar_item(this.dataset.window_id);
+    }.bind(new_fb)
+  );
+
+  const places = new_fb.querySelector("div.places");
+  setupFileBrowserPlaces(new_fb, places);
+
+  new_fb.addEventListener(
+    "click",
+    function () {
+      focus_window(this.dataset.window_id);
+    }.bind(new_fb)
+  );
+
+  windows_open[++last_window_id] = new_fb;
+  new_fb.dataset.window_id = last_window_id;
+  new_fb.id = last_window_id;
+  create_taskbar_item(
+    "File Browser",
+    "assets/appicons/mycomputer.png",
+    last_window_id
+  );
+  focus_window(last_window_id);
+  desktop.appendChild(new_fb);
+  change_browser_dir(new_fb, start_dir);
+}

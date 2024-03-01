@@ -5,7 +5,7 @@ div#taskbar:has(> div#start:not(.pressed)) ~ div#start-menu {
 
 div#start-menu.hidden {
     opacity: 0;
-	z-index: -1000;
+    z-index: -1000;
 }
 
 div#start-menu {
@@ -21,7 +21,7 @@ div#start-menu {
     z-index: 999;
 }
 
-div#start-menu > div#head {
+div#start-menu>div#head {
     height: 84px;
     display: flex;
     flex-direction: row;
@@ -32,32 +32,32 @@ div#start-menu > div#head {
     color: white;
 }
 
-div#start-menu > div#head > img#pfp {
+div#start-menu>div#head>img#pfp {
     height: 64px;
     width: 64px;
     border: 2px solid rgb(112, 170, 250);
     border-radius: 2px;
 }
 
-div#start-menu > div#head > span#username {
+div#start-menu>div#head>span#username {
     font-size: 24px;
 }
 
-div#start-menu > div#main {
+div#start-menu>div#main {
     height: 374px;
     width: 395px;
     margin-left: 2px;
     background-color: white;
 }
 
-div#start-menu > div#main > div#hr {
+div#start-menu>div#main>div#hr {
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, transparent, orange 50%, transparent);
     position: relative;
 }
 
-div#start-menu > div#main > div#realmain {
+div#start-menu>div#main>div#realmain {
     height: 372px;
     width: 100%;
 
@@ -68,19 +68,19 @@ div#start-menu > div#main > div#realmain {
     border-radius: 0px 0px 1px 1px;
 }
 
-div#start-menu > div#main > div#realmain > div#left {
+div#start-menu>div#main>div#realmain>div#left {
     height: 100%;
     width: 50%;
 }
 
-div#start-menu > div#main > div#realmain > div#right {
+div#start-menu>div#main>div#realmain>div#right {
     height: 100%;
     width: 50%;
     background-color: rgb(211, 229, 250);
     border-left: 2px solid rgb(149, 189, 238);
 }
 
-div#start-menu > div#main > div#realmain div.item {
+div#start-menu>div#main>div#realmain div.item {
     display: grid;
     grid-template-columns: 20% 80%;
     column-gap: 2%;
@@ -91,33 +91,33 @@ div#start-menu > div#main > div#realmain div.item {
     user-select: none;
 }
 
-div#start-menu > div#main > div#realmain div.item > img.icon {
+div#start-menu>div#main>div#realmain div.item>img.icon {
     grid-row-start: 1;
     grid-row-end: 3;
     height: 100%;
     justify-self: end;
 }
 
-div#start-menu > div#main > div#realmain div.item > span.name {
+div#start-menu>div#main>div#realmain div.item>span.name {
     color: black;
     font-weight: 700;
     align-self: end;
     font-size: 0.9em;
 }
 
-div#start-menu > div#main > div#realmain div.item > span.desc {
+div#start-menu>div#main>div#realmain div.item>span.desc {
     color: rgb(127, 127, 127);
     font-size: 0.75em;
     align-self: start;
 }
 
-div#start-menu > div#main > div#realmain div.sep {
+div#start-menu>div#main>div#realmain div.sep {
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, transparent 10%, rgb(127, 127, 127), transparent 90%);
 }
 
-div#start-menu > div#main > div#realmain div.frequent {
+div#start-menu>div#main>div#realmain div.frequent {
     display: grid;
     grid-template-columns: 20% 80%;
     column-gap: 2%;
@@ -128,19 +128,42 @@ div#start-menu > div#main > div#realmain div.frequent {
     user-select: none;
 }
 
-div#start-menu > div#main > div#realmain div.frequent > img.icon {
+div#start-menu>div#main>div#realmain div.frequent>img.icon {
     height: 100%;
     justify-self: end;
 }
 
-div#start-menu > div#main > div#realmain div.frequent > span.name {
+div#start-menu>div#main>div#realmain div.frequent>span.name {
     color: black;
     font-weight: 700;
     align-self: center;
     font-size: 0.9em;
 }
 
-div#start-menu > div#main > div#realmain div.all {
+div#start-menu>div#main>div#realmain div.place {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 2%;
+    padding: 4px;
+    height: 41px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+div#start-menu>div#main>div#realmain div.place>img.icon {
+    height: 100%;
+    justify-self: end;
+}
+
+div#start-menu>div#main>div#realmain div.place>span.name {
+    color: black;
+    font-weight: 700;
+    align-self: center;
+    font-size: 0.9em;
+}
+
+div#start-menu>div#main>div#realmain div.all {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -156,7 +179,7 @@ div#start-menu > div#main > div#realmain div.all {
     user-select: none;
 }
 
-div#start-menu > div#power {
+div#start-menu>div#power {
     height: 40px;
     display: flex;
     flex-direction: row;
