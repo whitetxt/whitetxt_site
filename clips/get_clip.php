@@ -10,6 +10,8 @@ if (substr($_GET["file"], -4) !== ".mp4") {
     $target_file = $target_dir . $_GET["file"];
 }
 
+$target_file = realpath($target_file);
+
 if (!file_exists($target_file)) {
     die(json_encode(array("status" => "fail", "msg" => "File not found.")));
 } else if (stripos($target_file, "..") !== false) {

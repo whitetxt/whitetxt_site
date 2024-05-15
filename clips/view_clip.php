@@ -48,6 +48,7 @@
 		<meta name="twitter:player:height" content="720">
 		<meta name="twitter:player" content=https://whitetxt.duckdns.org/clips/notfound.mp4">';
     } else {
+        $_GET["file"] = htmlspecialchars($_GET["file"]);
         echo '<!-- HTML Meta Tags -->
 		<title>_whitetxt\'s Clip Zone - ' . $f->readname . '</title>
 		<meta name="description" content="_whitetxt\'s place to upload and share epic gamer moments! Watch `' . $f->readname . '` on here now!">
@@ -100,6 +101,7 @@
         echo '<img id="notfound" src="notfound.png"/>
 				<span id="name">Failed to find file information.</span>';
     } else {
+        $_GET["file"] = htmlspecialchars($_GET["file"]);
         echo '<video id="clip" controls src="get_clip.php?file=' . $_GET["file"] . '"></video>
 				<span id="name">
 					' . $file->readname . '

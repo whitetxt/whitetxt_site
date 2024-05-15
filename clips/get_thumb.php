@@ -6,6 +6,8 @@ if (empty($_GET["file"])) {
 $target_dir = "/mnt/drive/clips/";
 $target_file = $target_dir . $_GET["file"] . ".jpg";
 
+$target_file = realpath($target_file);
+
 if (!file_exists($target_file)) {
 	die(json_encode(array("status"=>"fail","msg"=>"File not found.")));
 } else if (stripos($target_file, "..") !== false) {
