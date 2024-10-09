@@ -12,3 +12,7 @@ html {
     font-variation-settings:
         "slnt"0;
 }
+
+.text-lg {
+    line-height: 1.5rem;
+}
