@@ -16,3 +16,7 @@ html {
 .text-lg {
     line-height: 1.5rem;
 }
+
+#me>p:not(:last-child) {
+    @apply mb-2;
+}
