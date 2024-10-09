@@ -2,7 +2,7 @@
 if (!isset($_GET["file"])) {
 	die("No file specified.");
 }
-$target_dir = "/media/usb-storage/";
+$target_dir = "D:/clips/";
 $location = $target_dir . basename($_GET["file"]);
 
 if (!file_exists($location)) {

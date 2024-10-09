@@ -27,7 +27,7 @@ if (!in_array($game, $valid_games)) {
 	die(json_encode(array("status"=>"fail","msg"=>"Invalid game '" . $game . "'")));
 }
 
-$target_dir = "/mnt/drive/clips/";
+$target_dir = "D:/clips/";
 $fn = str_replace(" ", "", basename($_FILES["file"]["name"]));
 $target_file = $target_dir . $fn;
 

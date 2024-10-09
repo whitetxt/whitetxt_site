@@ -3,7 +3,7 @@ if (empty($_GET["file"])) {
 	die(json_encode(array("status"=>"fail","msg"=>"Missing file.")));
 }
 
-$target_dir = "/mnt/drive/clips/";
+$target_dir = "D:/clips/";
 $target_file = $target_dir . $_GET["file"] . ".jpg";
 
 $target_file = realpath($target_file);
