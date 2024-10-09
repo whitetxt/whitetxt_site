@@ -76,6 +76,9 @@ setTimeout(() => {
             return;
           }
           window.location.href = href;
+          setTimeout(() => {
+            trans.style.display = "none";
+          }, 25);
         }, 750);
       });
     }
