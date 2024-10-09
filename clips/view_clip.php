@@ -24,29 +24,29 @@
 		<meta name="description" content="_whitetxt\'s place to upload and share epic gamer moments! Unfortunately, this video seems to be missing...">
 
 		<!-- Facebook Meta Tags -->
-		<meta property="og:url" content="https://whitetxt.duckdns.org/clips/index.html">
+		<meta property="og:url" content="https://whitetxt.dev/clips/index.html">
 		<meta property="og:type" content="website">
 		<meta property="og:title" content="_whitetxt\'s Clip Zone - Unknown Clip">
 		<meta property="og:description" content="_whitetxt\'s place to upload and share epic gamer moments! Unfortunately, this video seems to be missing...">
-		<meta property="og:image" content="https://whitetxt.duckdns.org/clips/notfound.png">
+		<meta property="og:image" content="https://whitetxt.dev/clips/notfound.png">
 		<meta property="og:image:type" content="image/png">
 		<meta property="og:image:width" content="1920">
 		<meta property="og:image:height" content="1080">
-		<meta property="og:video" content="https://whitetxt.duckdns.org/clips/notfound.mp4">
-		<meta property="og:video:url" content="https://whitetxt.duckdns.org/clips/notfound.mp4">
+		<meta property="og:video" content="https://whitetxt.dev/clips/notfound.mp4">
+		<meta property="og:video:url" content="https://whitetxt.dev/clips/notfound.mp4">
 		<meta property="og:video:type" content="video/mp4">
 		<meta property="og:video:width" content="1280">
 		<meta property="og:video:height" content="720">
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="player">
-		<meta property="twitter:url" content="https://whitetxt.duckdns.org/clips/index.html">
+		<meta property="twitter:url" content="https://whitetxt.dev/clips/index.html">
 		<meta name="twitter:title" content="_whitetxt\'s Clip Zone - Unknown Clip">
 		<meta name="twitter:description" content="_whitetxt\'s place to upload and share epic gamer moments! Unfortunately, this video seems to be missing...">
-		<meta name="twitter:image" content="https://whitetxt.duckdns.org/clips/notfound.png">
+		<meta name="twitter:image" content="https://whitetxt.dev/clips/notfound.png">
 		<meta name="twitter:player:width" content="1280">
 		<meta name="twitter:player:height" content="720">
-		<meta name="twitter:player" content=https://whitetxt.duckdns.org/clips/notfound.mp4">';
+		<meta name="twitter:player" content=https://whitetxt.dev/clips/notfound.mp4">';
     } else {
         $_GET["file"] = htmlspecialchars($_GET["file"]);
         echo '<!-- HTML Meta Tags -->
@@ -54,32 +54,32 @@
 		<meta name="description" content="_whitetxt\'s place to upload and share epic gamer moments! Watch `' . $f->readname . '` on here now!">
 		
 		<!-- Facebook Meta Tags -->
-		<meta property="og:url" content="https://whitetxt.duckdns.org/clips/view_clip.php?file=' . $_GET["file"] . '">
+		<meta property="og:url" content="https://whitetxt.dev/clips/view_clip.php?file=' . $_GET["file"] . '">
 		<meta property="og:title" content="_whitetxt\'s Clip Zone - ' . $f->readname . '">
 		<meta property="og:type" content="video.other">
-		<meta property="og:image" content="https://whitetxt.duckdns.org/clips/get_thumb.php?file=' . $_GET["file"] . '">
+		<meta property="og:image" content="https://whitetxt.dev/clips/get_thumb.php?file=' . $_GET["file"] . '">
 		<meta property="og:image:type" content="image/jpeg">
 		<meta property="og:image:width" content="1920">
 		<meta property="og:image:height" content="1080">
-		<meta property="og:video" content="https://whitetxt.duckdns.org/clips/get_clip.php?file=' . $_GET["file"] . '">
-		<meta property="og:video:url" content="https://whitetxt.duckdns.org/clips/get_clip.php?file=' . $_GET["file"] . '">
+		<meta property="og:video" content="https://whitetxt.dev/clips/get_clip.php?file=' . $_GET["file"] . '">
+		<meta property="og:video:url" content="https://whitetxt.dev/clips/get_clip.php?file=' . $_GET["file"] . '">
 		<meta property="og:video:type" content="video/mp4">
 		<meta property="og:video:width" content="1920">
 		<meta property="og:video:height" content="1080">
 		<meta property="og:description" content="_whitetxt\'s place to upload and share epic gamer moments! Watch `' . $f->readname . '` on here now!">
-		<meta property="og:image" content="https://whitetxt.duckdns.org/clips/get_thumb.php?file=' . $_GET["file"] . '">
+		<meta property="og:image" content="https://whitetxt.dev/clips/get_thumb.php?file=' . $_GET["file"] . '">
 		
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="player">
-		<meta property="twitter:url" content="https://whitetxt.duckdns.org/clips/view_clip.php?file=' . $_GET["file"] . '">
+		<meta property="twitter:url" content="https://whitetxt.dev/clips/view_clip.php?file=' . $_GET["file"] . '">
 		<meta name="twitter:title" content="_whitetxt\'s Clip Zone - ' . $f->readname . '">
 		<meta name="twitter:description" content="_whitetxt\'s place to upload and share epic gamer moments! Watch `' . $f->readname . '` on here now!">
-		<meta name="twitter:image" content="https://whitetxt.duckdns.org/clips/get_thumb.php?file=' . $_GET["file"] . '">
+		<meta name="twitter:image" content="https://whitetxt.dev/clips/get_thumb.php?file=' . $_GET["file"] . '">
 		<meta name="twitter:player:width" content="1920">
 		<meta name="twitter:player:height" content="1080">
-		<meta name="twitter:player" content=https://whitetxt.duckdns.org/clips/get_clip.php?file=' . $_GET["file"] . '">';
+		<meta name="twitter:player" content=https://whitetxt.dev/clips/get_clip.php?file=' . $_GET["file"] . '">';
     }
-    echo '<meta property="twitter:domain" content="whitetxt.duckdns.org">
+    echo '<meta property="twitter:domain" content="whitetxt.dev">
 	<link rel="stylesheet" href="clips.css">
 	<link rel="stylesheet" href="view_clip.css">
 </head>

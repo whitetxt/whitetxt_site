@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="whitetxt" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://whitetxt.duckdns.org/index.html" />
-    <meta property="og:image" content="https://whitetxt.duckdns.org/assets/favicon.png" />
+    <meta property="og:url" content="https://whitetxt.dev/index.html" />
+    <meta property="og:image" content="https://whitetxt.dev/static/img/favicon.png" />
     <meta property="og:description" content="_whitetxt's Clip Zone" />
     <meta name="theme-color" content="#e283d9">
     <title>_whitetxt's Clip Zone</title>
@@ -150,7 +150,7 @@
                 var down = document.createElement("button");
                 down.innerText = "Share";
                 down.onclick = () => {
-                    navigator.clipboard.writeText(`https://whitetxt.duckdns.org/clips/view_clip.php?file=${element['name']}`);
+                    navigator.clipboard.writeText(`https://whitetxt.dev/clips/view_clip.php?file=${element['name']}`);
                     alert("Copied sharing url!");
                 };
                 div.append(down);
