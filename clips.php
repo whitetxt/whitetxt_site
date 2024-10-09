@@ -97,9 +97,11 @@
                 <?php
                 foreach ($clips->files as $clip) { ?>
                 <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
-                    <a href="clips/view_clip.php?file=<?= $clip->name ?>">
-                        <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
-                    </a>
+                    <figure>
+                        <a href="clips/view_clip.php?file=<?= $clip->name ?>">
+                            <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
+                        </a>
+                    </figure>
                     <div class="card-body">
                         <h2 class="card-title"><?= $clip->readname ?></h2>
                         <p>Game - <?= $clip->game ?></p>
