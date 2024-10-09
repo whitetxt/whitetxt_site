@@ -4,17 +4,15 @@ if (empty($_GET["file"])) {
 }
 
 $target_dir = "D:/clips/";
-$target_file = $target_dir . $_GET["file"] . ".jpg";
+$location = $target_dir . basename($_GET["file"]) . ".jpg";
 
-$target_file = realpath($target_file);
-
-if (!file_exists($target_file)) {
+if (!file_exists($location)) {
     die(json_encode(["status" => "fail", "msg" => "File not found."]));
-} else if (stripos($target_file, "..") !== false) {
+} else if (stripos($location, "..") !== false) {
     die(json_encode(["status" => "fail", "msg" => "Relative positions are not allowed."]));
 }
 
 header("Content-Type: image/jpg");
-header("Content-Length: " . filesize($target_file));
-readfile($target_file);
+header("Content-Length: " . filesize($location));
+readfile($location);
 return;

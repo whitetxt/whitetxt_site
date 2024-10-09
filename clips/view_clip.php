@@ -89,44 +89,45 @@
     <link rel="stylesheet" href="../style/style.css">
 </head>
 
-<body>
-    <div id="head">
-        <span id="back">
-            <a href="index.html">
-                <button>
-                    &lt; To index
-                </button>
-            </a>
+<body class="h-screen flex flex-col items-center">
+    <div class="flex flex-row justify-evenly items-center my-4 gap-8">
+        <a class="btn text-xl" href="../clips.php">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+            </svg>
+            Back
+        </a>
+        <span class="text-3xl font-bold">
+            _whitetxt's Gaming Clip Zone
         </span>
-        <span id="title">
-            _whitetxt\' s Gaming Clip Zone </span>
     </div>
-    <div id="viewclip">';
-        if ($file === null) {
-        echo '<img id="notfound" src="notfound.png" />
-        <span id="name">Failed to find file information.</span>';
-        } else {
-        $_GET["file"] = htmlspecialchars($_GET["file"]);
-        echo '<video id="clip" controls src="get_clip.php?file=' . $_GET[" file"] . '"></video>
-                <span id="name">
-                    ' . $file->readname . '
-            </span>
-            <span id="filename">
-                Filename: ' . $file->name . '
-            </span>
-            <span id="upload">
-                Upload Time: ' . $file->uploadtime . '
-            </span>
-            <button onclick="window.location=`download_file.php?file=' . $_GET[" file"] . '`;">
-                    Download
-                </button>
-                <button onclick="navigator.clipboard.writeText(window.location.href);alert(`Copied!`);">
-                    Share
-                </button>' ; } ?>
+    <div class="card bg-base-100 w-3/4 shadow-xl mx-auto">
+        <?php
+        if ($file !== null) { ?>
+        <figure>
+            <video controls src="get_clip.php?file=<?= $_GET["file"] ?>"></video>
+        </figure>
+        <div class="card-body text-lg">
+            <h2 class="card-title text-3xl font-bold"><?= $file->readname ?></h2>
+            <p>Filename: <?= $file->name ?></p>
+            <p>Size: <?= $file->filesize ?></p>
+            <p>Upload Time: <?= $file->uploadtime ?></p>
+            <div class="card-actions justify-end">
+                <a class="btn btn-primary" href="download_file.php?file=<?= $_GET["file"] ?>">Download</a>
+                <button class="btn btn-primary"
+                    onclick="navigator.clipboard.writeText(window.location.href);alert('Copied!');">Share</button>
+            </div>
+        </div>
+        <?php } else { ?>
+        <figure>
+            <img src="/static/img/notfound.png"></img>
+        </figure>
+        <div class="card-body text-lg">
+            <h2 class="card-title text-3xl font-bold">Failed to find file information.</h2>
+        </div>
+        <?php } ?>
     </div>
-    <footer id="footer">
-        This site was made and maintained by <a href="https://github.com/whitetxt"> _whitetxt </a>
-    </footer>
 </body>
 
 </html>
