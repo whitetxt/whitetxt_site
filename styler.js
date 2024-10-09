@@ -4,6 +4,7 @@ var toReplace = {
   "Python#lang": `color:#009BF7`,
   "C#lang": `color:#AABACD`,
   "JavaScript#lang": `color:#EAD64C`,
+  "JS#lang": `color:#EAD64C`,
   "PHP#lang": `color:#8790BA`,
   "Flutter#lang": `color:#01C2EB`,
   "LaTeX#lang": `color:#00BDBD`,
@@ -18,6 +19,7 @@ var toReplace = {
   "Team Fortress 2": `color:#F49C3F`,
   flyLAT: "color:#3E8DC3",
   "TailwindCSS#lang": `color:#18B8B8`,
+  "Dart#lang": `color:#61b5f5`,
 };
 for (const [key, value] of Object.entries(toReplace)) {
   const keyReplace = key.split("#", 1);

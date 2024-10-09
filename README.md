@@ -1,5 +1,5 @@
-# my site
+# \_whitetxt website
 
-very cool
+Recent redesign! Looks better now I think!
 
-[go look](https://whitetxt.duckdns.org)
+[Go look!](https://whitetxt.dev)

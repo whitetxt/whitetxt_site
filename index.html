@@ -5,72 +5,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>_whitetxt</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
-<body>
-    <div id="transition"></div>
-    <div class="squares">
-        <div id="square" class="main"></div>
-        <svg>
-            <line x1="0" y1="0" x2="100%" y2="100%" />
-            <line x1="33.33%" y1="0" x2="66.67%" y2="100%" />
-            <line x1="66.67%" y1="0" x2="33.33%" y2="100%" />
-            <line x1="100%" y1="0" x2="0" y2="100%" />
-        </svg>
-    </div>
-    <div id="header">
-        <div class="col">
-            <a href="about.html" class="item">
-                01. About
-            </a>
-            <a href="projects.html" class="item">
-                02. Projects
-            </a>
+<!-- https://css-tricks.com/animating-with-clip-path/ -->
+<style>
+    .melt-enter-active {
+        animation: 4s melt-enter forwards;
+    }
+
+    .melt-leave-active {
+        animation: 4s melt-leave forwards;
+    }
+
+    @keyframes melt-enter {
+        0% {
+            clip-path: path('M0 -0.12C8.33 -8.46 16.67 -12.62 25 -12.62C37.5 -12.62 35.91 0.15 50 -0.12C64.09 -0.4 62.5 -34.5 75 -34.5C87.5 -34.5 87.17 -4.45 100 -0.12C112.83 4.2 112.71 -17.95 125 -18.28C137.29 -18.62 137.76 1.54 150.48 -0.12C163.19 -1.79 162.16 -25.12 174.54 -25.12C182.79 -25.12 191.28 -16.79 200 -0.12L200 -34.37L0 -34.37L0 -0.12Z');
+        }
+
+        100% {
+            clip-path: path('M0 199.88C8.33 270.71 16.67 306.13 25 306.13C37.5 306.13 35.91 231.4 50 231.13C64.09 230.85 62.5 284.25 75 284.25C87.5 284.25 87.17 208.05 100 212.38C112.83 216.7 112.71 300.8 125 300.47C137.29 300.13 137.76 239.04 150.48 237.38C163.19 235.71 162.16 293.63 174.54 293.63C182.79 293.63 191.28 262.38 200 199.88L200 0.13L0 0.13L0 199.88Z');
+        }
+    }
+
+    @keyframes melt-leave {
+        0% {
+            clip-path: path('M0 0C8.33 -8.33 16.67 -12.5 25 -12.5C37.5 -12.5 36.57 -0.27 50 0C63.43 0.27 62.5 -34.37 75 -34.37C87.5 -34.37 87.5 -4.01 100 0C112.5 4.01 112.38 -18.34 125 -18.34C137.62 -18.34 138.09 1.66 150.48 0C162.86 -1.66 162.16 -25 174.54 -25C182.79 -25 191.28 -16.67 200 0L200 200L0 200L0 0Z');
+        }
+
+        100% {
+            clip-path: path('M0 200C8.33 270.83 16.67 306.25 25 306.25C37.5 306.25 36.57 230.98 50 231.25C63.43 231.52 62.5 284.38 75 284.38C87.5 284.38 87.5 208.49 100 212.5C112.5 216.51 112.38 300.41 125 300.41C137.62 300.41 138.09 239.16 150.48 237.5C162.86 235.84 162.16 293.75 174.54 293.75C182.79 293.75 191.28 262.5 200 200L200 200L0 200L0 200Z');
+        }
+    }
+</style>
+
+<body class="h-screen flex flex-col items-center">
+    <div class="max-w-[1280px] w-full h-full grid grid-cols-7 mt-4 px-4">
+        <div id="nav" class="w-full flex flex-col items-center gap-4">
+            <div class="tooltip tooltip-right" data-tip="Home">
+                <a class="btn btn-sm btn-square btn-active" href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                </a>
+            </div>
+            <div class="tooltip tooltip-right" data-tip="Me">
+                <a class="btn btn-sm btn-square" href="me.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="tooltip tooltip-right" data-tip="Now">
+                <a class="btn btn-sm btn-square" href="now.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="tooltip tooltip-right" data-tip="Links">
+                <a class="btn btn-sm btn-square" href="links.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                    </svg>
+                </a>
+            </div>
+            <div class="tooltip tooltip-right" data-tip="Clips">
+                <a class="btn btn-sm btn-square" href="clips.php">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="divider divider-horizontal flex-grow self-center"></div>
         </div>
-        <div class="txt">
-            <a href="index.html">
-                _whitetxt
-            </a>
-        </div>
-        <div class="col">
-            <a href="contact.html" class="item">
-                03. Contact
-            </a>
-            <a href="links.html" class="item">
-                04. Links
-            </a>
+        <div id="main" class="col-span-6">
+            <div id="info" class="grid grid-cols-1 md:grid-cols-4 min-h-48">
+                <div class="md:col-span-3 col-span-1 flex flex-col justify-center">
+                    <span class="text-4xl font-bold">Hey, I'm _whitetxt</span>
+                    <span class="text-3xl">Full(ish)-stack developer, 2nd year Computer Science student</span>
+                    <span class="text-lg mt-2 mr-16">I'm most proficient in Python#lang, PHP#lang, JS#lang &
+                        Flutter#lang/Dart#lang, but I also use a
+                        bunch of other languages to suit the needs of projects.</span>
+                </div>
+                <div class="flex flex-row items-center justify-center gap-4 my-4 md:flex-col md:my-0">
+                    <div class="avatar flex items-center justify-center">
+                        <div class="ring-current h-32 w-32 rounded ring ring-offset-1 ring-offset-current box-border">
+                            <img src="static/img/pfp.jpg" class="pfp absolute top-0 left-0" />
+                            <img src="static/img/pfp2.jpg" class="pfp absolute top-0 left-0 hidden" />
+                            <img src="static/img/pfp3.jpg" class="pfp absolute top-0 left-0 hidden" />
+                            <img src="static/img/pfp4.jpg" class="pfp absolute top-0 left-0 hidden" />
+                            <img src="static/img/pfp5.jpg" class="pfp absolute top-0 left-0 hidden" />
+                            <img src="static/img/pfp6.jpg" class="pfp absolute top-0 left-0 hidden" />
+                            <img src="static/img/pfp7.jpg" class="pfp absolute top-0 left-0 hidden" />
+                        </div>
+                    </div>
+                    <span>they/them</span>
+                </div>
+            </div>
+            <div id="projects-container">
+                <span class="text-4xl font-bold mb-4">Best Projects</span>
+                <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card bg-base-100 shadow-md shadow-neutral">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">StreamMusicDisplay</h2>
+                            <p>A simple Python program for showing the currently playing song on your stream.</p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary" href="https://github.com/whitetxt/StreamMusicDisplay">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-md shadow-neutral">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">PlanAway</h2>
+                            <p>This was my project for my NEA at A-Level, an app to hold students' timetables, homework
+                                and other useful information.</p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary" href="https://github.com/whitetxt/planner_app">
+                                    View on GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-md shadow-neutral">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">This site!</h2>
+                            <p>This website has gone through multiple redesigns, and I'm really proud of this one!</p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary" href="https://github.com/whitetxt/whitetxt_site">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-md shadow-neutral">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">Python Graph Editor</h2>
+                            <p>This is a simple graph editor made in Python using TK. Implemented a simple Djikstra
+                                algorithm aswell.</p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary" href="https://github.com/whitetxt/graph-editor">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-md shadow-neutral">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">TSEE</h2>
+                            <p>This is a game engine that I started making a while ago, but unfortunately never
+                                finished.</p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary" href="https://github.com/whitetxt/TSEE">View on
+                                    GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-xl flex flex-row items-center font-bold gap-2 my-2 hover:gap-4 transition-all duration-100"
+                    href="https://github.com/whitetxt?tab=repositories">
+                    <span>View More</span>
+                    <span>→</span>
+                </a>
+            </div>
         </div>
     </div>
 </body>
 <script src="styler.js"></script>
-<script src="links.js"></script>
-<script src="cursor.js"></script>
 <script>
-    const square_container = document.querySelector("div.squares");
-    const num_squares = 25;
-    for (var i = 0; i < num_squares; i++) {
-        const sq = document.createElement("div");
-        sq.id = "square";
-        square_container.appendChild(sq);
-    }
-    const squares = document.querySelectorAll("div#square");
-    const animationDuration = 15000;
-    squares.forEach((elem, idx) => {
-        elem.style.animationDuration = `${animationDuration}ms`;
-        elem.style.animationDelay = `${-idx * (animationDuration / num_squares)}ms`;
-    });
-    const mainSquare = document.querySelector("div#square.main");
-    const text = [":3", ":O", "☆ ～('▽^人)", "(* ^ ω ^)", ">:3", ":3c", "ヽ(*・ω・)ﾉ", "(υ◉ω◉υ)"];
-    mainSquare.innerText = text[Math.floor(Math.random() * text.length)];
-    setInterval(() => {
-        mainSquare.dataset.text = text[Math.floor(Math.random() * text.length)];
-        while (mainSquare.dataset.text === mainSquare.innerText) {
-            mainSquare.dataset.text = text[Math.floor(Math.random() * text.length)];
+    function shuffle(array) {
+        let currentIndex = array.length;
+
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+
+            // Pick a remaining element...
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
         }
-        mainSquare.dataset.counter = 0;
-        randomize(mainSquare, 3);
-    }, 7500);
+    }
+
+    const avatars = document.querySelectorAll('.pfp');
+    var cur_idx = 0;
+    const idxs = [];
+    for (let i = 0; i < avatars.length; i++) {
+        idxs.push(i);
+    }
+    var next_idxs = [...idxs];
+    next_idxs.splice(cur_idx, 1);
+    shuffle(next_idxs);
+    setInterval(() => {
+        if (next_idxs.length == 0) {
+            next_idxs = [...idxs];
+            next_idxs.splice(cur_idx, 1);
+            shuffle(next_idxs);
+        }
+        var next_idx = next_idxs.pop();
+        avatars[cur_idx].classList.remove("melt-enter-active");
+        avatars[cur_idx].classList.add("melt-leave-active");
+        avatars[next_idx].classList.remove("hidden");
+        avatars[next_idx].classList.remove("melt-leave-active");
+        avatars[next_idx].classList.add("melt-enter-active");
+        cur_idx = next_idx;
+    }, 10000);
 </script>
 
 </html>
