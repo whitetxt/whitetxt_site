@@ -1,10 +1,21 @@
+<?php $clips = json_decode(file_get_contents(__DIR__ . "/clips/files.json")); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>_whitetxt - about</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>_whitetxt - clip zone</title>
+    <link rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="whitetxt" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://whitetxt.dev/clips.php" />
+    <meta property="og:image" content="https://whitetxt.dev/static/img/favicon.png" />
+    <meta property="og:description" content="_whitetxt's Clip Zone" />
+    <!-- <meta name="theme-color" content="#e283d9"> -->
     <link rel="stylesheet" href="style/style.css">
 </head>
 
@@ -21,7 +32,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Me">
-                <a class="btn btn-sm btn-square btn-active" href="me.html">
+                <a class="btn btn-sm btn-square" href="me.html">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -48,7 +59,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Clips">
-                <a class="btn btn-sm btn-square" href="clips.php">
+                <a class="btn btn-sm btn-square btn-active" href="clips.php">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -58,42 +69,65 @@
             </div>
             <div class="divider divider-horizontal flex-grow self-center"></div>
         </div>
-        <div id="me" class="col-span-6 text-lg">
-            <p class="text-4xl font-bold">About Me</p>
-            <p>Hey! I'm _whitetxt, a trans dev on the internet.</p>
-            <p>If you want to know what to refer to me as, there is a link to my pronouns.page on the links page. If you
-                do go on there, thank you for caring about me!</p>
-            <p>I am also a back-end (and occasionally front-end) software developer. I've been writing software for
-                around 5 years, and enjoy it a lot.</p>
-            <p>I use Python as my main language, but I also have experience using C#lang, JavaScript#lang, PHP#lang and
-                Flutter#lang.
-            </p>
-            <p>In addition to these, I have lots of experience using LaTeX#lang to typeset and format documents,
-                creating multiple large documents using it.</p>
-            <p class="text-4xl font-bold">Experience</p>
-            <p>I have participated in many different CyberCenturion competitions, which is a cyber security competition
-                in which competitors must audit multiple different Unix systems to find and fix security vulnerabilites.
-                In the last competition I participated in, CyberCenturion IX, of which I have competed, the team I led
-                came 5th in the UK. I am now assisting my fellow competitors from my School by tutoring them and passing
-                down the knowledge I gained from the competition and University.</p>
-            <p>I have worked as part of a team with punch#comp to create a Metaverse area for them inside of
-                Decentraland. I acted as the lead developer, with my other team members working on the graphic design
-                and 3D modelling required for the project.</p>
-            <p>I have previously worked with flyLAT, where I designed a front-end for their application using PHP#lang,
-                JavaScript#lang and TailwindCSS#lang.</p>
-            <p>I've also created a virtual money system to compensate students who help out with my University's news
-                system. This used PHP#lang, TailwindCSS#lang and JavaScript#lang, and used a bunch of new concepts to
-                allow for contactless spending of their money via secure QR codes.</p>
-            <p class="text-4xl font-bold">Other Stuff</p>
-            <p>Currently I'm studying for a BSc in Computer Science, just finished my first year (with an average mark
-                of over 80%) so I'd say its going pretty well! </p>
-            <p>I've also been doing some stuff with my University, learning about broadcast software and hardware used
-                to help out with broadcasting events in their arena. I'm really enjoying being on a broadcast team and
-                I'm not totally sure at the moment if I want to go into broadcasting or software development anymore.
-            </p>
+        <div id="main" class="w-full col-span-6 mb-4">
+            <div class="flex flex-row justify-evenly items-center mb-4">
+                <span class="text-3xl font-bold">
+                    _whitetxt's Gaming Clip Zone
+                </span>
+                <span class="text-xl">
+                    Number of Clips: <?= count($clips->files) ?>
+                </span>
+                <span class="text-xl">
+                    <label>
+                        <div class="label">
+                            <span class="label-text">Filter</span>
+                        </div>
+                        <select id="filter" class="select select-bordered select-sm max-w-xs "
+                            onchange="changedFilter(this.value);">
+                            <option value="all">All</option>
+                            <?php
+                            foreach ($clips->games as $game) { ?>
+                            <option value="<?= $game ?>"><?= $game ?></option>
+                            <?php } ?>
+                        </select>
+                    </label>
+                </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="clips">
+                <?php
+                foreach ($clips->files as $clip) { ?>
+                <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
+                    <a href="clips/view_clip.php?file=<?= $clip->name ?>">
+                        <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
+                    </a>
+                    <div class="card-body">
+                        <h2 class="card-title"><?= $clip->readname ?></h2>
+                        <p>Game - <?= $clip->game ?></p>
+                        <div class="card-actions justify-end">
+                            <a class="btn btn-primary">Download</a>
+                            <a class="btn btn-primary">Share</a>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
 </body>
-<script src="styler.js"></script>
+<script>
+var filter = "all";
+const dir_items_element = document.querySelector("div#clips");
+
+function changedFilter(new_f) {
+    filter = new_f;
+    for (let elem of dir_items_element.children) {
+        if (filter !== "all" && elem.getAttribute("game") !== filter) {
+            elem.classList.add("hidden");
+        } else {
+            elem.classList.remove("hidden");
+        }
+    }
+}
+</script>
 
 </html>
