@@ -2,4 +2,4 @@
 
 very cool
 
-[go look](https://whitetxt.duckdns.org)
+[go look](https://whitetxt.dev)
