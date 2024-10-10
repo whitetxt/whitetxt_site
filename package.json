@@ -9,8 +9,7 @@
         "tailwindcss": "^3.4.13"
     },
     "scripts": {
-        "tailwind": "pnpx tailwindcss -i ./static/style/input.css -o ./static/style/tw.css",
-        "postcss": "pnpx postcss-cli ./static/style/tw.css > ./static/style/style.css",
-        "css": "pnpx tailwindcss -i ./static/style/input.css -o ./static/style/tw.css && pnpx postcss-cli ./static/style/tw.css > ./static/style/style.css"
+        "tailwind": "pnpx tailwindcss -i ./static/style/input.css -o ./static/style/tw.css --minify",
+        "postcss": "pnpx postcss-cli ./static/style/tw.css > ./static/style/style.css"
     }
 }
