@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://whitetxt.dev/</loc>
+  <lastmod>2024-10-10T22:41:12+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://whitetxt.dev/index.html</loc>
+  <lastmod>2024-10-10T22:41:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whitetxt.dev/me.html</loc>
+  <lastmod>2024-10-10T22:41:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whitetxt.dev/now.html</loc>
+  <lastmod>2024-10-10T22:41:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whitetxt.dev/links.html</loc>
+  <lastmod>2024-10-10T22:31:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whitetxt.dev/clips.php</loc>
+  <lastmod>2024-10-10T22:46:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>
