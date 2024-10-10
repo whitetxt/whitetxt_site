@@ -1,3 +1,4 @@
 # no robots pls
 User-agent: *
-Disallow: /
+Disallow: /static/
+Disallow: /clips/

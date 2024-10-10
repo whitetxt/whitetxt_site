@@ -7,22 +7,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
     <title>_whitetxt - clip zone</title>
-    <link rel="stylesheet" href="static/style/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="whitetxt" />
+    <meta name="title" content="_whitetxt - clip zone" />
+    <meta name="description" content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://whitetxt.dev/clips.php" />
-    <meta property="og:image" content="https://whitetxt.dev/static/img/favicon.png" />
-    <meta property="og:description" content="_whitetxt's Clip Zone" />
-    <!-- <meta name="theme-color" content="#e283d9"> -->
-    <link rel="stylesheet" href="static/style/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <meta property="og:url" content="https://whitetxt.dev" />
+    <meta property="og:title" content="_whitetxt - clip zone" />
+    <meta property="og:description"
+        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+    <meta property="og:image" content="/static/img/cover.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://whitetxt.dev" />
+    <meta property="twitter:title" content="_whitetxt - clip zone" />
+    <meta property="twitter:description"
+        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+    <meta property="twitter:image" content="/static/img/cover.png" />
 </head>
 
 <body class="h-screen flex flex-col items-center">
@@ -93,7 +102,7 @@
                             <option value="all">All</option>
                             <?php
                             foreach ($clips->games as $game) { ?>
-                                <option value="<?= $game ?>"><?= $game ?></option>
+                            <option value="<?= $game ?>"><?= $game ?></option>
                             <?php } ?>
                         </select>
                     </label>
@@ -102,40 +111,40 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4" id="clips">
                 <?php
                 foreach ($clips->files as $clip) { ?>
-                    <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
-                        <figure>
-                            <a href="clips/view_clip.php?file=<?= $clip->name ?>">
-                                <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
-                            </a>
-                        </figure>
-                        <div class="card-body">
-                            <h2 class="card-title"><?= $clip->readname ?></h2>
-                            <p>Game - <?= $clip->game ?></p>
-                            <div class="card-actions justify-end">
-                                <a class="btn btn-primary">Download</a>
-                                <a class="btn btn-primary">Share</a>
-                            </div>
+                <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
+                    <figure>
+                        <a href="clips/view_clip.php?file=<?= $clip->name ?>">
+                            <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
+                        </a>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title"><?= $clip->readname ?></h2>
+                        <p>Game - <?= $clip->game ?></p>
+                        <div class="card-actions justify-end">
+                            <a class="btn btn-primary">Download</a>
+                            <a class="btn btn-primary">Share</a>
                         </div>
                     </div>
+                </div>
                 <?php } ?>
             </div>
         </div>
     </div>
 </body>
 <script>
-    var filter = "all";
-    const dir_items_element = document.querySelector("div#clips");
+var filter = "all";
+const dir_items_element = document.querySelector("div#clips");
 
-    function changedFilter(new_f) {
-        filter = new_f;
-        for (let elem of dir_items_element.children) {
-            if (filter !== "all" && elem.getAttribute("game") !== filter) {
-                elem.classList.add("hidden");
-            } else {
-                elem.classList.remove("hidden");
-            }
+function changedFilter(new_f) {
+    filter = new_f;
+    for (let elem of dir_items_element.children) {
+        if (filter !== "all" && elem.getAttribute("game") !== filter) {
+            elem.classList.add("hidden");
+        } else {
+            elem.classList.remove("hidden");
         }
     }
+}
 </script>
 
 </html>
