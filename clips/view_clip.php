@@ -87,7 +87,9 @@
     <?php } ?>
     <meta property="twitter:domain" content="whitetxt.dev">
     <link rel="stylesheet" href="../static/style/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 </head>
 
 <body class="h-screen flex flex-col items-center">

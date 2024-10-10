@@ -9,7 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>_whitetxt - clip zone</title>
     <link rel="stylesheet" href="static/style/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="whitetxt" />
     <meta property="og:type" content="website" />
@@ -18,14 +20,16 @@
     <meta property="og:description" content="_whitetxt's Clip Zone" />
     <!-- <meta name="theme-color" content="#e283d9"> -->
     <link rel="stylesheet" href="static/style/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 </head>
 
 <body class="h-screen flex flex-col items-center">
     <div class="max-w-[1280px] w-full h-full grid grid-cols-7 mt-4 px-4">
         <div id="nav" class="w-full flex flex-col items-center gap-4">
             <div class="tooltip tooltip-right" data-tip="Home">
-                <a class="btn btn-sm btn-square" href="index.html">
+                <a class="btn btn-sm btn-square btn-active" href="index.html" aria-label="Home Page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -34,7 +38,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Me">
-                <a class="btn btn-sm btn-square" href="me.html">
+                <a class="btn btn-sm btn-square" href="me.html" aria-label="About Me Page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,7 +47,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Now">
-                <a class="btn btn-sm btn-square" href="now.html">
+                <a class="btn btn-sm btn-square" href="now.html" aria-label="What am I doing now page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -52,7 +56,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Links">
-                <a class="btn btn-sm btn-square" href="links.html">
+                <a class="btn btn-sm btn-square" href="links.html" aria-label="Links page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -61,7 +65,7 @@
                 </a>
             </div>
             <div class="tooltip tooltip-right" data-tip="Clips">
-                <a class="btn btn-sm btn-square btn-active" href="clips.php">
+                <a class="btn btn-sm btn-square btn-active" href="clips.php" aria-label="Clips page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
