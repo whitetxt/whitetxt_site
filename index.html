@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>_whitetxt</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="static/style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
 </head>
 
 <!-- https://css-tricks.com/animating-with-clip-path/ -->
@@ -90,15 +91,15 @@
             <div class="divider divider-horizontal flex-grow self-center"></div>
         </div>
         <div id="main" class="col-span-6">
-            <div id="info" class="grid grid-cols-1 md:grid-cols-4 min-h-48">
-                <div class="md:col-span-3 col-span-1 flex flex-col justify-center">
+            <div id="info" class="grid grid-cols-1 lg:grid-cols-4 min-h-48">
+                <div class="lg:col-span-3 col-span-1 flex flex-col justify-center">
                     <span class="text-4xl font-bold">Hey, I'm _whitetxt</span>
                     <span class="text-3xl">Full(ish)-stack developer, 2nd year Computer Science student</span>
                     <span class="text-lg mt-2 mr-16">I'm most proficient in Python#lang, PHP#lang, JS#lang &
                         Flutter#lang/Dart#lang, but I also use a
                         bunch of other languages to suit the needs of projects.</span>
                 </div>
-                <div class="flex flex-row items-center justify-center gap-4 my-4 md:flex-col md:my-0">
+                <div class="flex flex-row items-center justify-center gap-4 my-4 lg:flex-col lg:my-0">
                     <div class="avatar flex items-center justify-center">
                         <div class="ring-current h-32 w-32 rounded ring ring-offset-1 ring-offset-current box-border">
                             <img src="static/img/pfp.jpg" class="pfp absolute top-0 left-0" />
@@ -115,7 +116,7 @@
             </div>
             <div id="projects-container">
                 <span class="text-4xl font-bold mb-4">Best Projects</span>
-                <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div id="projects" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="card bg-base-100 shadow-md shadow-neutral">
                         <div class="card-body">
                             <h2 class="card-title text-2xl">StreamMusicDisplay</h2>
@@ -198,7 +199,7 @@
         }
     }
 
-    const avatars = document.querySelectorAll('.pfp');
+    var avatars = document.querySelectorAll('.pfp');
     var cur_idx = 0;
     const idxs = [];
     for (let i = 0; i < avatars.length; i++) {
@@ -208,6 +209,8 @@
     next_idxs.splice(cur_idx, 1);
     shuffle(next_idxs);
     setInterval(() => {
+        // Didn't work on Chromium without this for some reason?
+        avatars = document.querySelectorAll('.pfp');
         if (next_idxs.length == 0) {
             next_idxs = [...idxs];
             next_idxs.splice(cur_idx, 1);
@@ -219,6 +222,8 @@
         avatars[next_idx].classList.remove("hidden");
         avatars[next_idx].classList.remove("melt-leave-active");
         avatars[next_idx].classList.add("melt-enter-active");
+        console.log(cur_idx, next_idx);
+        console.log(avatars[next_idx].classList);
         cur_idx = next_idx;
     }, 10000);
 </script>

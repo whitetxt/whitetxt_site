@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>_whitetxt - clip zone</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="static/style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="whitetxt" />
     <meta property="og:type" content="website" />
@@ -16,7 +17,8 @@
     <meta property="og:image" content="https://whitetxt.dev/static/img/favicon.png" />
     <meta property="og:description" content="_whitetxt's Clip Zone" />
     <!-- <meta name="theme-color" content="#e283d9"> -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="static/style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap">
 </head>
 
 <body class="h-screen flex flex-col items-center">
@@ -87,49 +89,49 @@
                             <option value="all">All</option>
                             <?php
                             foreach ($clips->games as $game) { ?>
-                            <option value="<?= $game ?>"><?= $game ?></option>
+                                <option value="<?= $game ?>"><?= $game ?></option>
                             <?php } ?>
                         </select>
                     </label>
                 </span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="clips">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4" id="clips">
                 <?php
                 foreach ($clips->files as $clip) { ?>
-                <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
-                    <figure>
-                        <a href="clips/view_clip.php?file=<?= $clip->name ?>">
-                            <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
-                        </a>
-                    </figure>
-                    <div class="card-body">
-                        <h2 class="card-title"><?= $clip->readname ?></h2>
-                        <p>Game - <?= $clip->game ?></p>
-                        <div class="card-actions justify-end">
-                            <a class="btn btn-primary">Download</a>
-                            <a class="btn btn-primary">Share</a>
+                    <div class="card bg-base-100 shadow-md shadow-neutral" game="<?= $clip->game ?>">
+                        <figure>
+                            <a href="clips/view_clip.php?file=<?= $clip->name ?>">
+                                <img src="clips/get_thumb.php?file=<?= $clip->name ?>" alt="Video Thumbnail" />
+                            </a>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title"><?= $clip->readname ?></h2>
+                            <p>Game - <?= $clip->game ?></p>
+                            <div class="card-actions justify-end">
+                                <a class="btn btn-primary">Download</a>
+                                <a class="btn btn-primary">Share</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>
     </div>
 </body>
 <script>
-var filter = "all";
-const dir_items_element = document.querySelector("div#clips");
+    var filter = "all";
+    const dir_items_element = document.querySelector("div#clips");
 
-function changedFilter(new_f) {
-    filter = new_f;
-    for (let elem of dir_items_element.children) {
-        if (filter !== "all" && elem.getAttribute("game") !== filter) {
-            elem.classList.add("hidden");
-        } else {
-            elem.classList.remove("hidden");
+    function changedFilter(new_f) {
+        filter = new_f;
+        for (let elem of dir_items_element.children) {
+            if (filter !== "all" && elem.getAttribute("game") !== filter) {
+                elem.classList.add("hidden");
+            } else {
+                elem.classList.remove("hidden");
+            }
         }
     }
-}
 </script>
 
 </html>
