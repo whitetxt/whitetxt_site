@@ -38,7 +38,7 @@
     <div class="max-w-[1280px] w-full h-full grid grid-cols-7 mt-4 px-4">
         <div id="nav" class="w-full flex flex-col items-center gap-4">
             <div class="tooltip tooltip-right" data-tip="Home">
-                <a class="btn btn-sm btn-square btn-active" href="index.html" aria-label="Home Page">
+                <a class="btn btn-sm btn-square" href="index.html" aria-label="Home Page">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
