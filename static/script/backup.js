@@ -2,7 +2,7 @@ const elem = document.createElement("div");
 elem.id = "hostCheck";
 elem.classList.add("absolute", "left-0", "top-0", "flex", "flex-row", "items-center", "p-4", "gap-4", "hidden");
 elem.innerHTML = `<span class="loading loading-ring loading-sm" id="hostCheckLoading"></span>
-<span id="hostCheckText">Checking if host is online...</span>`;
+<span id="hostCheckText" class="hidden 2xl:block">Checking if host is online...</span>`;
 document.body.appendChild(elem);
 
 const hostCheck = document.querySelector("#hostCheck");
@@ -47,12 +47,12 @@ function checkHost() {
         if (res.status !== 200) {
             // Host offline
             hostCheckLoading.classList.add("hidden");
-            hostCheckText.innerText = "Host offline. Rechecking in 1 minute.";
+            hostCheckText.innerText = "Host offline.";
             return;
         }
         // Host online
         hostCheckLoading.classList.add("hidden");
-        hostCheckText.innerText = "Host is back online! Please go to whitetxt.dev";
+        hostCheckText.innerText = "Host is back online!";
         const hero = document.createElement("div");
         hero.id = "backuphero";
         hero.classList.add("hero", "bg-base-200", "min-h-[50vh]", "absolute", "left-1/2", "top-1/2", "transform", "-translate-x-1/2", "-translate-y-1/2", "w-1/4");
