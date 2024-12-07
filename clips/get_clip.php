@@ -3,7 +3,7 @@ if (empty($_GET["file"])) {
     die(json_encode(["status" => "fail", "msg" => "Missing file."]));
 }
 
-$target_dir = "D:/clips/";
+$target_dir = "/mnt/clips/";
 $location = $target_dir . basename($_GET["file"]);
 
 if (!file_exists($location)) {
