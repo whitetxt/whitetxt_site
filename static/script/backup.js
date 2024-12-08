@@ -9,7 +9,7 @@ const hostCheck = document.querySelector("#hostCheck");
 const hostCheckLoading = document.querySelector("#hostCheckLoading");
 const hostCheckText = document.querySelector("#hostCheckText");
 
-if (window.location.host === "backup.whitetxt.dev" || true) {
+if (window.location.host === "backup.whitetxt.dev") {
     const clips = document.querySelector("a[href='clips.php']");
     clips.href = "/clips.html";
     hostCheck.classList.remove("hidden");
