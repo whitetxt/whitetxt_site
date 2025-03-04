@@ -82,7 +82,7 @@
                     </svg>
                 </a>
             </div>
-            <div class="divider divider-horizontal flex-grow self-center"></div>
+            <div class="divider divider-horizontal grow self-center"></div>
         </div>
         <div id="main" class="w-full col-span-6 mb-4">
             <div class="flex flex-row justify-evenly items-center mb-4">
