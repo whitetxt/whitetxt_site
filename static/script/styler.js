@@ -20,6 +20,7 @@ var toReplace = {
   flyLAT: "color:#3E8DC3",
   "TailwindCSS#lang": `color:#18B8B8`,
   "Dart#lang": `color:#61b5f5`,
+  "University of Staffordshire London": `color:#ef4a3b`,
 };
 for (const [key, value] of Object.entries(toReplace)) {
   const keyReplace = key.split("#", 1);
