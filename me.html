@@ -1,123 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            rel="stylesheet"
+            href="/static/style/style.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+            rel="stylesheet"
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="/static/style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+        <!-- Primary Meta Tags -->
+        <title>_whitetxt - about me</title>
+        <meta
+            name="title"
+            content="_whitetxt - about me"
+        />
+        <meta
+            name="description"
+            content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt"
+        />
 
-    <!-- Primary Meta Tags -->
-    <title>_whitetxt - about me</title>
-    <meta name="title" content="_whitetxt - about me" />
-    <meta name="description" content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+        <!-- Open Graph / Facebook -->
+        <meta
+            property="og:type"
+            content="website"
+        />
+        <meta
+            property="og:url"
+            content="https://whitetxt.dev"
+        />
+        <meta
+            property="og:title"
+            content="_whitetxt - about me"
+        />
+        <meta
+            property="og:description"
+            content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt"
+        />
+        <meta
+            property="og:image"
+            content="/static/img/cover.png"
+        />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://whitetxt.dev" />
-    <meta property="og:title" content="_whitetxt - about me" />
-    <meta property="og:description"
-        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
-    <meta property="og:image" content="/static/img/cover.png" />
+        <!-- Twitter -->
+        <meta
+            property="twitter:card"
+            content="summary_large_image"
+        />
+        <meta
+            property="twitter:url"
+            content="https://whitetxt.dev"
+        />
+        <meta
+            property="twitter:title"
+            content="_whitetxt - about me"
+        />
+        <meta
+            property="twitter:description"
+            content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt"
+        />
+        <meta
+            property="twitter:image"
+            content="/static/img/cover.png"
+        />
+    </head>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://whitetxt.dev" />
-    <meta property="twitter:title" content="_whitetxt - about me" />
-    <meta property="twitter:description"
-        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
-    <meta property="twitter:image" content="/static/img/cover.png" />
-</head>
-
-<body class="h-screen flex flex-col items-center">
-    <div class="max-w-[1280px] w-full h-full grid grid-cols-7 mt-4 px-4">
-        <div id="nav" class="w-full flex flex-col items-center gap-4">
-            <div class="tooltip tooltip-right" data-tip="Home">
-                <a class="btn btn-sm btn-square" href="index.html" aria-label="Home Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                    </svg>
-                </a>
+    <body class="h-screen flex flex-col items-center">
+        <div class="max-w-[1280px] w-full h-full grid grid-cols-7 mt-4 px-4">
+            <div
+                id="nav"
+                class="w-full flex flex-col items-center gap-4"
+            >
+                <div
+                    class="tooltip tooltip-right"
+                    data-tip="Home"
+                >
+                    <a
+                        class="btn btn-sm btn-square"
+                        href="index.html"
+                        aria-label="Home Page"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class="tooltip tooltip-right"
+                    data-tip="Me"
+                >
+                    <a
+                        class="btn btn-sm btn-square btn-active"
+                        href="me.html"
+                        aria-label="About Me Page"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class="tooltip tooltip-right"
+                    data-tip="Now"
+                >
+                    <a
+                        class="btn btn-sm btn-square"
+                        href="now.html"
+                        aria-label="What am I doing now page"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class="tooltip tooltip-right"
+                    data-tip="Links"
+                >
+                    <a
+                        class="btn btn-sm btn-square"
+                        href="links.html"
+                        aria-label="Links page"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class="tooltip tooltip-right"
+                    data-tip="Clips"
+                >
+                    <a
+                        class="btn btn-sm btn-square"
+                        href="clips.php"
+                        aria-label="Clips page"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-5"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div class="divider divider-horizontal grow self-center"></div>
             </div>
-            <div class="tooltip tooltip-right" data-tip="Me">
-                <a class="btn btn-sm btn-square btn-active" href="me.html" aria-label="About Me Page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                </a>
+            <div
+                id="me"
+                class="col-span-6 text-lg"
+            >
+                <p class="text-4xl font-bold">About Me</p>
+                <p>
+                    Heyo! I'm J or _whitetxt on the internet, and I do software
+                    dev.
+                </p>
+                <p>
+                    I am primarily a back-end dev but I have been known to
+                    dabble in some front-end stuff from time to time. I've been
+                    writing software for around 7 years, and enjoy it a lot.
+                </p>
+                <p>
+                    I use Python as my main language, but I also have experience
+                    using C#lang, JavaScript#lang, PHP#lang and Flutter#lang.
+                </p>
+                <p>
+                    In addition to these, I have lots of experience using
+                    LaTeX#lang to typeset and format documents, creating
+                    multiple large documents using it.
+                </p>
+                <p>
+                    Currently I am doing my Bachelor's degree in Computer
+                    Science at University of Staffordshire London, on track for
+                    a first class degree!
+                </p>
+                <p class="text-4xl font-bold">Experience</p>
+                <p>
+                    I worked for Amazon for 3 months over the summer of 2025,
+                    developing a CI/CD solution to reduce on-call engineer time.
+                    <br />
+                    This reduced investigations by up to 70%, saving over 40
+                    hours a month of on-call engineer time.
+                    <br />
+                    The project was developed in Python#lang, using packages
+                    such as NumPy and Scipy to perform data analysis.
+                    <br />
+                    The project was documented throughout development, to ensure
+                    the team could continue to use and maintain it after I left.
+                </p>
+                <p>
+                    I have participated in the CyberCenturion, a cyber security
+                    competition in which competitors must audit multiple
+                    different Unix systems to find and solve security
+                    vulnerabilites, a few times. In the last competition I
+                    participated in, CyberCenturion IX, the team I led came 5th
+                    in the UK.
+                </p>
+                <p>
+                    I have worked as part of a team with punch#comp to create a
+                    Metaverse area for them inside of Decentraland. I acted as
+                    the lead developer, with my other team members working on
+                    the graphic design and 3D modelling required for the
+                    project.
+                </p>
+                <p>
+                    I have previously worked with flyLAT, where I designed a
+                    front-end for their application using PHP#lang,
+                    JavaScript#lang and TailwindCSS#lang.
+                </p>
+                <p>
+                    I've also created a virtual money system to compensate
+                    students who help out with my University's news system. This
+                    used PHP#lang, TailwindCSS#lang and JavaScript#lang, and
+                    used a bunch of new concepts to allow for contactless
+                    spending of their money via QR codes.
+                </p>
+                <p class="text-4xl font-bold">University</p>
+                <p>
+                    As previously mentioned, I'm studying for a BSc in Computer
+                    Science, well into my third year at this point and I'm still
+                    keeping up with the high grades.
+                </p>
+                <p>
+                    I've also been doing some broadcast stuff at the Uni,
+                    helping to run events and streams to much success :D
+                </p>
             </div>
-            <div class="tooltip tooltip-right" data-tip="Now">
-                <a class="btn btn-sm btn-square" href="now.html" aria-label="What am I doing now page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                </a>
-            </div>
-            <div class="tooltip tooltip-right" data-tip="Links">
-                <a class="btn btn-sm btn-square" href="links.html" aria-label="Links page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
-                    </svg>
-                </a>
-            </div>
-            <div class="tooltip tooltip-right" data-tip="Clips">
-                <a class="btn btn-sm btn-square" href="clips.php" aria-label="Clips page">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                    </svg>
-                </a>
-            </div>
-            <div class="divider divider-horizontal grow self-center"></div>
         </div>
-        <div id="me" class="col-span-6 text-lg">
-            <p class="text-4xl font-bold">About Me</p>
-            <p>Heyo! I'm J or _whitetxt on the internet, and I do software dev.</p>
-            <p>I am primarily a back-end dev but I have been known to dabble in some front-end stuff from time to time.
-                I've been writing software for around 6 years, and enjoy it a lot.</p>
-            <p>I use Python as my main language, but I also have experience using C#lang, JavaScript#lang, PHP#lang and
-                Flutter#lang.</p>
-            <p>In addition to these, I have lots of experience using LaTeX#lang to typeset and format documents,
-                creating multiple large documents using it.</p>
-            <p>Currently I am doing my Bachelor's degree in Computer Science at University of Staffordshire London, on
-                track for a first class degree!</p>
-            <p class="text-4xl font-bold">Experience</p>
-            <p>I have participated in the CyberCenturion, a cyber security competition in which competitors must audit
-                multiple different Unix systems to find and solve security vulnerabilites, a few times.
-                In the last competition I participated in, CyberCenturion IX, the team I led came 5th in the UK. I am
-                now assisting my fellow competitors from my School by tutoring them and passing down the knowledge I
-                gained from the competition and University.</p>
-            <p>I have worked as part of a team with punch#comp to create a Metaverse area for them inside of
-                Decentraland. I acted as the lead developer, with my other team members working on the graphic design
-                and 3D modelling required for the project.</p>
-            <p>I have previously worked with flyLAT, where I designed a front-end for their application using PHP#lang,
-                JavaScript#lang and TailwindCSS#lang.</p>
-            <p>I've also created a virtual money system to compensate students who help out with my University's news
-                system. This used PHP#lang, TailwindCSS#lang and JavaScript#lang, and used a bunch of new concepts to
-                allow for contactless spending of their money via secure QR codes.</p>
-            <p class="text-4xl font-bold">University</p>
-            <p>As previously mentioned, I'm studying for a BSc in Computer Science, well into my second year at this
-                point and I'm still keeping up with the high grades, I'm excited to see where the rest of this year will
-                take me and what sort of grade I will graduate with.</p>
-            <p>I've also been doing some broadcast stuff at the Uni, helping to run events and streams to much success
-                :D</p>
-            <p>I'm really enjoying being on a broadcast team and I'm not totally sure at the moment if I want to go
-                into broadcasting or software development anymore.</p>
-        </div>
-    </div>
-</body>
-<script src="/static/script/styler.js" defer></script>
-<script src="/static/script/backup.js" defer></script>
-
+    </body>
+    <script
+        src="/static/script/styler.js"
+        defer
+    ></script>
+    <script
+        src="/static/script/backup.js"
+        defer
+    ></script>
 </html>

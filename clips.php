@@ -15,14 +15,14 @@
     <!-- Primary Meta Tags -->
     <title>_whitetxt - clip zone</title>
     <meta name="title" content="_whitetxt - clip zone" />
-    <meta name="description" content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+    <meta name="description" content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://whitetxt.dev" />
     <meta property="og:title" content="_whitetxt - clip zone" />
     <meta property="og:description"
-        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+        content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt" />
     <meta property="og:image" content="/static/img/cover.png" />
 
     <!-- Twitter -->
@@ -30,7 +30,7 @@
     <meta property="twitter:url" content="https://whitetxt.dev" />
     <meta property="twitter:title" content="_whitetxt - clip zone" />
     <meta property="twitter:description"
-        content="I'm _whitetxt, full(ish)-stack developer, 2nd year Computer Science student" />
+        content="I'm _whitetxt, full(ish)-stack developer & 3rd year Computer Science studentnt" />
     <meta property="twitter:image" content="/static/img/cover.png" />
 </head>
 
