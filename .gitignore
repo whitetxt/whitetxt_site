@@ -3,3 +3,4 @@ vendor/
 .well-known/
 node_modules/
 package-lock.json
+voucher/
